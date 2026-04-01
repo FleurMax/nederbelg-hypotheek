@@ -204,6 +204,14 @@ const BlogCard = ({ post }) => (
 const Blog = () => {
     const [search, setSearch] = useState('');
 
+    React.useEffect(() => {
+        document.title = "Blog en nieuws over Belgische hypotheken | Nederbelg Hypotheek";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', 'Lees alles over de Belgische huizenmarkt, hypotheekrenteaftrek voor Nederlanders en meer op onze blog.');
+        }
+    }, []);
+
     const filtered = blogPosts.filter(p =>
         p.title.toLowerCase().includes(search.toLowerCase()) ||
         p.excerpt.toLowerCase().includes(search.toLowerCase())

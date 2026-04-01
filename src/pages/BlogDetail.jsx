@@ -108,6 +108,16 @@ const BlogDetail = () => {
     const prev = blogPosts[currentIndex - 1];
     const next = blogPosts[currentIndex + 1];
 
+    React.useEffect(() => {
+        if (post) {
+            document.title = `${post.title} | Nederbelg Hypotheek`;
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', post.excerpt);
+            }
+        }
+    }, [post]);
+
     if (!post || !content) {
         return (
             <div style={{ textAlign: 'center', padding: '100px 20px' }}>
