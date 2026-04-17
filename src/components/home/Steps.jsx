@@ -111,7 +111,7 @@ const Steps = () => {
                                 <p style={{
                                     fontSize: '14px',
                                     lineHeight: '1.6',
-                                    color: '#64748b',
+                                    color: 'var(--c-text-muted)',
                                     fontWeight: '500',
                                     margin: 0
                                 }}>

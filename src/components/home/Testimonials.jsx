@@ -19,7 +19,9 @@ const TestimonialCard = ({ name, location, text }) => (
             <img
                 src="https://www.vectorlogo.zone/logos/google/google-icon.svg"
                 alt="Google"
-                style={{ width: '18px', opacity: 0.8 }}
+                width="18"
+                height="18"
+                style={{ width: '18px', height: '18px', opacity: 0.8 }}
             />
         </div>
 
@@ -59,7 +61,7 @@ const TestimonialCard = ({ name, location, text }) => (
                 </div>
                 <div>
                     <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--c-navy)', margin: 0 }}>{name}</h4>
-                    <span style={{ fontSize: '13px', fontWeight: '700', color: '#64748b' }}>{location}</span>
+                    <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--c-text-muted)' }}>{location}</span>
                 </div>
             </div>
         </div>
@@ -173,17 +175,28 @@ const Testimonials = () => {
                         <button
                             key={idx}
                             onClick={() => setActiveIndex(idx)}
+                            aria-label={`Getuigenis ${idx + 1} bekijken`}
                             style={{
+                                width: activeIndex === idx ? '24px' : '8px',
+                                height: '28px', // Increase height for tap area
+                                padding: '10px 0', // Vertical padding for tap area
+                                borderRadius: '4px',
+                                background: 'transparent',
+                                border: 'none',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                transition: 'all 0.3s ease'
+                            }}
+                        >
+                            <div style={{
                                 width: activeIndex === idx ? '24px' : '8px',
                                 height: '8px',
                                 borderRadius: '4px',
                                 background: activeIndex === idx ? 'var(--c-green)' : 'rgba(255,255,255,0.2)',
-                                border: 'none',
-                                cursor: 'pointer',
-                                padding: 0,
-                                transition: 'all 0.3s ease'
-                            }}
-                        />
+                                transition: 'inherit'
+                            }} />
+                        </button>
                     ))}
                 </div>
             </div>

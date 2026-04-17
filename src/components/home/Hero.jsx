@@ -211,7 +211,7 @@ const Hero = () => {
                                 <div style={{ 
                                     fontSize: '11px', 
                                     fontWeight: '800', 
-                                    color: '#64748b', 
+                                    color: 'var(--c-text-muted)', 
                                     letterSpacing: '0.05em',
                                     fontFamily: 'var(--font-outfit)',
                                     marginTop: '-2px'

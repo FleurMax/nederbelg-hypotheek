@@ -89,7 +89,7 @@ const Footer = () => {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    color: '#64748b',
+                    color: 'var(--c-text-muted)',
                     fontSize: '14px',
                     fontWeight: '500',
                     flexWrap: 'wrap',

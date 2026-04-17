@@ -94,7 +94,7 @@ const ContentBlock = ({ block }) => {
         case 'h2':
             return <h2 style={{ fontFamily: 'var(--font-outfit)', fontSize: '24px', fontWeight: '800', color: 'var(--c-navy)', marginTop: '40px', marginBottom: '16px', letterSpacing: '-0.5px' }}>{block.text}</h2>;
         case 'p':
-            return <p style={{ fontSize: '16px', lineHeight: '1.85', color: '#475569', fontWeight: '500', marginBottom: '20px' }}>{block.text}</p>;
+            return <p style={{ fontSize: '16px', lineHeight: '1.85', color: 'var(--c-text-muted)', fontWeight: '500', marginBottom: '20px' }}>{block.text}</p>;
         default:
             return null;
     }
@@ -153,9 +153,9 @@ const BlogDetail = () => {
             {/* Breadcrumb */}
             <div style={{ background: 'white', borderBottom: '1px solid #E2E8F0', padding: '16px 20px' }}>
                 <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: '600' }}>
-                    <Link to="/" style={{ color: '#64748b', textDecoration: 'none' }}>Home</Link>
+                    <Link to="/" style={{ color: 'var(--c-text-muted)', textDecoration: 'none' }}>Home</Link>
                     <span style={{ color: '#CBD5E1' }}>›</span>
-                    <Link to="/blog" style={{ color: '#64748b', textDecoration: 'none' }}>Blog en nieuws</Link>
+                    <Link to="/blog" style={{ color: 'var(--c-text-muted)', textDecoration: 'none' }}>Blog en nieuws</Link>
                     <span style={{ color: '#CBD5E1' }}>›</span>
                     <span style={{ color: 'var(--c-navy)' }}>{post.title.substring(0, 40)}...</span>
                 </div>
@@ -227,7 +227,7 @@ const BlogDetail = () => {
                 </div>
 
                 <div style={{ textAlign: 'center', marginTop: '40px' }}>
-                    <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#64748b', textDecoration: 'none', fontWeight: '700', fontSize: '15px' }}>
+                    <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--c-text-muted)', textDecoration: 'none', fontWeight: '700', fontSize: '15px' }}>
                         <ArrowLeft size={16} /> Terug naar alle artikelen
                     </Link>
                 </div>

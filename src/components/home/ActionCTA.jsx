@@ -31,7 +31,7 @@ const ActionCTA = () => {
                         gap: '20px',
                         border: '1px solid rgba(0,0,0,0.02)'
                     }}>
-                        <h3 style={{ fontSize: '15px', fontWeight: '700', color: '#64748b', margin: 0, textAlign: 'left' }}>
+                        <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--c-text-muted)', margin: 0, textAlign: 'left' }}>
                             Heb je een <br /> snelle vraag?
                         </h3>
                         <a
@@ -79,7 +79,7 @@ const ActionCTA = () => {
                         gap: '20px',
                         border: '1px solid rgba(0,0,0,0.02)'
                     }}>
-                        <h3 style={{ fontSize: '15px', fontWeight: '700', color: '#64748b', margin: 0, textAlign: 'left' }}>
+                        <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--c-text-muted)', margin: 0, textAlign: 'left' }}>
                             Wil je weten wat <br /> je kunt lenen?
                         </h3>
                         <a

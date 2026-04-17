@@ -58,6 +58,7 @@ const WhatsAppWidget = () => {
                         <button
                             onClick={() => setShowPopup(false)}
                             style={{ position: 'absolute', top: '8px', right: '8px', background: 'none', border: 'none', cursor: 'pointer', color: '#94a3b8' }}
+                            aria-label="Popup sluiten"
                         >
                             <X size={14} />
                         </button>
@@ -78,6 +79,7 @@ const WhatsAppWidget = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="floating-whatsapp"
+                    aria-label="Contacteer ons via WhatsApp"
                     style={{
                         width: '64px',
                         height: '64px',

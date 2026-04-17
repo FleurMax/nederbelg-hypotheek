@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+/* Font loading moved to index.html for better performance */
 
 html {
   scroll-behavior: smooth;
@@ -15,7 +15,7 @@ html {
   --c-orange: #26A69A;
   --c-whatsapp: #25D366;
   --c-white: #FFFFFF;
-  --c-text-muted: #64748B;
+  --c-text-muted: #475569;
   --c-text-light: #FFFFFF;
   --c-text-dark: #000000;
 

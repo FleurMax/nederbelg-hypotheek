@@ -71,7 +71,7 @@ const NewsletterCard = () => (
         minHeight: '420px',
         boxSizing: 'border-box',
     }}>
-        <h3 style={{
+        <h2 style={{
             fontFamily: 'var(--font-outfit)',
             fontSize: '28px',
             fontWeight: '800',
@@ -81,7 +81,7 @@ const NewsletterCard = () => (
             letterSpacing: '-0.5px'
         }}>
             Ontvang informatie die past bij jouw plan
-        </h3>
+        </h2>
         <p style={{ color: '#B1BAD3', fontSize: '15px', fontWeight: '500', marginBottom: '28px', lineHeight: '1.6' }}>
             Meld je aan voor onze nieuwsbrief en ontvang tips en nieuws over de Belgische huizenmarkt.
         </p>
@@ -172,7 +172,7 @@ const BlogCard = ({ post }) => (
                     <Calendar size={13} />
                     {post.date}
                 </div>
-                <h3 style={{
+                <h2 style={{
                     fontFamily: 'var(--font-outfit)',
                     fontSize: '18px',
                     fontWeight: '800',
@@ -182,8 +182,8 @@ const BlogCard = ({ post }) => (
                     letterSpacing: '-0.3px'
                 }}>
                     {post.title}
-                </h3>
-                <p style={{ fontSize: '14px', color: '#64748b', fontWeight: '500', lineHeight: '1.7', flex: 1, marginBottom: '20px' }}>
+                </h2>
+                <p style={{ fontSize: '14px', color: 'var(--c-text-muted)', fontWeight: '500', lineHeight: '1.7', flex: 1, marginBottom: '20px' }}>
                     {post.excerpt}
                 </p>
                 <div style={{

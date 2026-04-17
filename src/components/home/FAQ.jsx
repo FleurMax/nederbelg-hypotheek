@@ -40,7 +40,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
                 <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    style={{ color: isOpen ? 'var(--c-green)' : '#64748b', flexShrink: 0 }}
+                    style={{ color: isOpen ? 'var(--c-green)' : 'var(--c-text-muted)', flexShrink: 0 }}
                 >
                     <ChevronDown size={24} />
                 </motion.div>
@@ -126,7 +126,7 @@ const FAQ = () => {
                     }}>
                         Veelgestelde vragen
                     </h2>
-                    <p style={{ fontSize: '18px', color: '#64748b', fontWeight: '500' }}>
+                    <p style={{ fontSize: '18px', color: 'var(--c-text-muted)', fontWeight: '500' }}>
                         Alles wat je moet weten over verhuizen naar en financieren in België.
                     </p>
                 </div>

@@ -61,9 +61,9 @@ const Navbar = () => {
                                 <a
                                     href={link.href}
                                     onClick={() => setMenuOpen(false)}
-                                    style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.2s' }}
+                                    style={{ color: 'var(--c-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }}
                                     onMouseOver={(e) => e.target.style.color = 'var(--c-navy)'}
-                                    onMouseOut={(e) => e.target.style.color = '#64748b'}
+                                    onMouseOut={(e) => e.target.style.color = 'var(--c-text-muted)'}
                                 >
                                     {link.label}
                                 </a>
@@ -109,7 +109,7 @@ const Navbar = () => {
                         padding: '8px',
                         color: 'var(--c-navy)'
                     }}
-                    aria-label="Menu openen"
+                    aria-label={menuOpen ? "Menu sluiten" : "Menu openen"}
                 >
                     {menuOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
