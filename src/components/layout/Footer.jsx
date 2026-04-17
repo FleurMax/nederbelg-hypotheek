@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -13,7 +13,7 @@ const Footer = () => {
             <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto' }}>
                 <div className="footer-grid" style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
                     gap: '40px',
                     marginBottom: '60px'
                 }}>
@@ -39,7 +39,7 @@ const Footer = () => {
                         <h4 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '24px', fontFamily: 'var(--font-outfit)' }}>Contact</h4>
                         <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: '16px' }}>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#B1BAD3', fontSize: '15px' }}>
-                                <Mail size={16} color="var(--c-green)" /> info@nederbelghypotheek.nl
+                                <Mail size={16} color="var(--c-green)" /> info@nederbelghypotheek.be
                             </li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#B1BAD3', fontSize: '15px' }}>
                                 <Phone size={16} color="var(--c-green)" /> +32/484.928.247
@@ -65,40 +65,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Volg ons icons */}
-                    <div>
-                        <h4 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '24px', fontFamily: 'var(--font-outfit)' }}>Volg ons op</h4>
-                        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-                            {[
-                                { icon: <Facebook size={20} />, label: 'Facebook' },
-                                { icon: <Linkedin size={20} />, label: 'Linkedin' },
-                                { icon: <Instagram size={20} />, label: 'Instagram' }
-                            ].map((social, idx) => (
-                                <a key={idx} href="#" aria-label={social.label} style={{
-                                    width: '44px',
-                                    height: '44px',
-                                    background: 'rgba(255,255,255,0.05)',
-                                    borderRadius: '12px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: 'white',
-                                    transition: 'all 0.2s'
-                                }}
-                                    onMouseOver={(e) => {
-                                        e.currentTarget.style.background = 'var(--c-green)';
-                                        e.currentTarget.style.color = 'var(--c-navy)';
-                                    }}
-                                    onMouseOut={(e) => {
-                                        e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                                        e.currentTarget.style.color = 'white';
-                                    }}
-                                >
-                                    {social.icon}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
 
                     {/* Overige links */}
                     <div>

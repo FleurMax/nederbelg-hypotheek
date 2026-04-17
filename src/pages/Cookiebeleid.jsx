@@ -71,7 +71,7 @@ const Cookiebeleid = () => {
             </LegalSection>
 
             <LegalSection title="5. Contact">
-                <p>Heeft u vragen over ons cookiebeleid? Neem contact met ons op via <strong>info@nederbelghypotheek.nl</strong>.</p>
+                <p>Heeft u vragen over ons cookiebeleid? Neem contact met ons op via <strong>info@nederbelghypotheek.be</strong>.</p>
             </LegalSection>
         </LegalLayout>
     );

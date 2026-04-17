@@ -73,7 +73,7 @@ const PrivacyBeleid = () => {
                     <li><strong>Recht op bezwaar:</strong> u kunt bezwaar maken tegen de verwerking</li>
                     <li><strong>Recht op overdraagbaarheid:</strong> u kunt uw gegevens opvragen in een leesbaar formaat</li>
                 </ul>
-                <p style={{ marginTop: '12px' }}>Neem contact op via <strong>info@nederbelghypotheek.nl</strong> om uw rechten uit te oefenen.</p>
+                <p style={{ marginTop: '12px' }}>Neem contact op via <strong>info@nederbelghypotheek.be</strong> om uw rechten uit te oefenen.</p>
             </LegalSection>
 
             <LegalSection title="8. Klacht indienen">

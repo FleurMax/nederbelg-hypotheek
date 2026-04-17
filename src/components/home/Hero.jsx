@@ -140,7 +140,7 @@ const Hero = () => {
                         height: '100%'
                     }}>
                         <img 
-                            src="/images/hero.png" 
+                            src="/images/hero.jpg" 
                             alt="Belgian Dream House" 
                             style={{
                                 width: '100%',

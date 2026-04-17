@@ -34,7 +34,7 @@ const WhyFree = () => {
                         background: 'white'
                     }}>
                         <img
-                            src="/images/pic2.png"
+                            src="/images/pic2.jpg"
                             alt="Waarom gratis?"
                             style={{
                                 width: '100%',

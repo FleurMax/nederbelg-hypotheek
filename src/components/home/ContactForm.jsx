@@ -99,7 +99,7 @@ const ContactForm = () => {
                                 <div style={{ background: 'white', width: '40px', height: '40px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
                                     <Mail size={18} color="var(--c-green)" />
                                 </div>
-                                <div style={{ fontSize: '15px', fontWeight: '800', color: 'var(--c-navy)' }}>info@nederbelghypotheek.nl</div>
+                                <div style={{ fontSize: '15px', fontWeight: '800', color: 'var(--c-navy)' }}>info@nederbelghypotheek.be</div>
                             </div>
                         </div>
                     </motion.div>

@@ -50,7 +50,7 @@ const AlgemeneVoorwaarden = () => {
                 <div style={{ marginTop: '12px', background: '#F8FAFC', padding: '20px', borderRadius: '12px', borderLeft: '4px solid var(--c-green)' }}>
                     <p><strong>Nederbelg Hypotheek</strong></p>
                     <p>Camille D'Havestraat 43, 9040 Gent</p>
-                    <p>E-mail: info@nederbelghypotheek.nl</p>
+                    <p>E-mail: info@nederbelghypotheek.be</p>
                     <p>Telefoon: +32/484.928.247</p>
                 </div>
             </LegalSection>

@@ -87,7 +87,7 @@ const NewsletterCard = () => (
         </p>
         <input
             type="email"
-            placeholder="jouw@email.nl"
+            placeholder="jouw@email.be"
             style={{
                 background: 'white',
                 border: 'none',
