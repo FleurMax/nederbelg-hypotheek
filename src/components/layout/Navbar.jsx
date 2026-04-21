@@ -79,7 +79,14 @@ const Navbar = () => {
                         gap: '4px'
                     }}>
 
-                        <a href="https://wa.me/32484928247" style={{
+                        <a 
+                            href="https://wa.me/32484928247" 
+                            onClick={() => {
+                                if (typeof window.gtag_report_conversion === 'function') {
+                                    window.gtag_report_conversion();
+                                }
+                            }}
+                            style={{
                             display: 'flex',
                             alignItems: 'center',
                             gap: '8px',
@@ -149,7 +156,14 @@ const Navbar = () => {
                     ))}
                     <div style={{ borderTop: '1px solid #F1F5F9', marginTop: '8px', paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
 
-                        <a href="https://wa.me/32484928247" style={{
+                        <a 
+                            href="https://wa.me/32484928247" 
+                            onClick={() => {
+                                if (typeof window.gtag_report_conversion === 'function') {
+                                    window.gtag_report_conversion();
+                                }
+                            }}
+                            style={{
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',

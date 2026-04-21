@@ -90,6 +90,11 @@ const Hero = () => {
                                 whileHover={{ scale: 1.02, y: -2 }}
                                 whileTap={{ scale: 0.98 }}
                                 href="https://wa.me/32484928247"
+                                onClick={() => {
+                                    if (typeof window.gtag_report_conversion === 'function') {
+                                        window.gtag_report_conversion();
+                                    }
+                                }}
                                 style={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -113,6 +118,11 @@ const Hero = () => {
                                 href="https://calendly.com/nederbelg-hypotheek/45min"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => {
+                                    if (typeof window.gtag_report_conversion === 'function') {
+                                        window.gtag_report_conversion();
+                                    }
+                                }}
                                 style={{
                                     display: 'flex',
                                     alignItems: 'center',
