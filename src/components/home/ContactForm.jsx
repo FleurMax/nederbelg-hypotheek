@@ -22,6 +22,9 @@ const ContactForm = () => {
         })
             .then(() => {
                 setLoading(false);
+                if (typeof window.gtag_report_conversion === 'function') {
+                    window.gtag_report_conversion();
+                }
                 navigate('/bedankt');
             })
             .catch((error) => {

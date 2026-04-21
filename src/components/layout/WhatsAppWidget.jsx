@@ -78,6 +78,11 @@ const WhatsAppWidget = () => {
                     href="https://wa.me/32484928247"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                        if (typeof window.gtag_report_conversion === 'function') {
+                            window.gtag_report_conversion();
+                        }
+                    }}
                     className="floating-whatsapp"
                     aria-label="Contacteer ons via WhatsApp"
                     style={{
