@@ -175,7 +175,7 @@ const BlogDetail = () => {
                     <p style={{ color: '#B1BAD3', fontSize: '16px', fontWeight: '500', marginBottom: '28px', maxWidth: '500px', margin: '0 auto 28px' }}>
                         Plan een gratis adviesgesprek en ontdek wat jij kunt lenen met een Nederlands inkomen in België.
                     </p>
-                    <a href="https://wa.me/32484928247" style={{
+                    <a href="https://wa.me/32495326101" style={{
                         display: 'inline-flex', alignItems: 'center', gap: '10px',
                         background: 'var(--c-green)', color: 'var(--c-navy)', padding: '16px 32px',
                         borderRadius: '12px', fontWeight: '800', fontSize: '16px', textDecoration: 'none',

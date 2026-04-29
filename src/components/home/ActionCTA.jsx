@@ -35,7 +35,7 @@ const ActionCTA = () => {
                             Heb je een <br /> snelle vraag?
                         </h3>
                         <a
-                            href="https://wa.me/32484928247"
+                            href="https://wa.me/32495326101"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{

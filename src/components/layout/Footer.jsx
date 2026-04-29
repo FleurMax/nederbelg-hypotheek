@@ -39,13 +39,13 @@ const Footer = () => {
                         <h4 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '24px', fontFamily: 'var(--font-outfit)' }}>Contact</h4>
                         <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: '16px' }}>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#B1BAD3', fontSize: '15px' }}>
-                                <Mail size={16} color="var(--c-green)" /> info@nederbelghypotheek.be
+                                <Mail size={16} color="var(--c-primary)" /> info@nederbelghypotheek.be
                             </li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#B1BAD3', fontSize: '15px' }}>
-                                <Phone size={16} color="var(--c-green)" /> +32/484.928.247
+                                <Phone size={16} color="var(--c-primary)" /> +32 495 32 61 01
                             </li>
                             <li style={{ display: 'flex', alignItems: 'start', gap: '10px', color: '#B1BAD3', fontSize: '15px' }}>
-                                <MapPin size={16} color="var(--c-green)" style={{ marginTop: '4px', flexShrink: 0 }} />
+                                <MapPin size={16} color="var(--c-primary)" style={{ marginTop: '4px', flexShrink: 0 }} />
                                 <div>Camille D'Havestraat 43<br />9040 Gent</div>
                             </li>
                             <li>
@@ -53,7 +53,7 @@ const Footer = () => {
                                     display: 'inline-flex',
                                     alignItems: 'center',
                                     gap: '8px',
-                                    color: 'var(--c-green)',
+                                    color: 'var(--c-primary)',
                                     textDecoration: 'none',
                                     fontSize: '15px',
                                     fontWeight: '800',

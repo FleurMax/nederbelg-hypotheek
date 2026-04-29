@@ -2,27 +2,39 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 120px;
 }
 
 :root {
-  /* Slimvesteer Style - Custom */
-  --c-navy: #000000;
-  --c-navy-light: #1A1A1A;
-  --c-blue-accent: #E0F2F1;
-  --c-green: #14B8A6;
-  --c-green-hover: #0D9488;
-  --c-orange: #26A69A;
+  /* V2 Design Tokens */
+  --c-primary: #0055cc;
+  --c-primary-light: #e8f0fd;
+  --c-primary-pale: #f0f5ff;
+  --c-primary-hover: #003fa0;
+  --c-navy: #0d1b2a;
+  --c-navy-light: #1e293b;
+  --c-orange: #ff6b35; 
+  --c-green: #00c48c;
   --c-whatsapp: #25D366;
   --c-white: #FFFFFF;
-  --c-text-muted: #475569;
-  --c-text-light: #FFFFFF;
-  --c-text-dark: #000000;
+  --c-text-muted: #516075;
+  --c-text-light: #9aaabb;
+  --c-text-dark: #0d1b2a;
+  --c-bg-light: #f7f9fc;
+  --c-border: #e8ecf0;
 
   --font-inter: 'Inter', sans-serif;
   --font-outfit: 'Outfit', sans-serif;
 
-  --container-max: 1400px;
+  --container-max: 1280px;
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow: 0 8px 40px rgba(0,0,0,0.09);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
 }
 
 * {
@@ -54,24 +66,26 @@ h6 {
 }
 
 .btn-primary {
-  background: var(--c-orange);
+  background: var(--c-primary);
   color: white;
-  padding: 16px 32px;
+  padding: 14px 28px;
   border-radius: 12px;
   font-weight: 700;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 10px 20px color-mix(in srgb, var(--c-orange) 20%, transparent);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--c-primary) 30%, transparent);
   display: inline-flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
+  font-size: 15px;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px color-mix(in srgb, var(--c-orange) 30%, transparent);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--c-primary) 40%, transparent);
+  background: var(--c-primary-hover);
 }
 
 .btn-secondary {
@@ -130,14 +144,16 @@ h6 {
 
 /* Hero Card Desktop Base */
 .hero-card {
-  background: white;
-  border-radius: 48px;
-  overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.05);
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  border: none;
   display: grid;
-  grid-template-columns: minmax(0, 55%) minmax(0, 45%);
-  min-height: 750px;
+  grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+  gap: 40px;
+  min-height: auto;
+  align-items: center;
 }
 
 /* =============================================
@@ -393,33 +409,168 @@ h6 {
     padding: 20px !important;
     box-shadow: none !important;
     border: none !important;
-    border-radius: 0 !important;
   }
 }
 
 /* =============================================
-   RESPONSIVE: SMALL MOBILE (≤ 480px)
+   UTILITIES & COMPONENTS
    ============================================= */
+
+.section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+@media (max-width: 1024px) {
+    .section-header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+.section-header-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Custom Grids */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+}
+
+.contact-cta-card {
+    padding: 80px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--c-bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--c-text-light);
+  border-radius: 5px;
+  border: 3px solid var(--c-bg-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-text-muted);
+}
+
+
+/* =============================================
+   RESPONSIVE SYSTEM
+   ============================================= */
+
+/* Tablet & Mobile Layout Stacking */
+@media (max-width: 1024px) {
+    .hero-container,
+    .section-header-grid,
+    .benefits-layout-container,
+    .contact-cta-card {
+        grid-template-columns: 1fr !important;
+        gap: 48px !important;
+    }
+
+    .nav-menu {
+        display: none !important;
+    }
+
+    .mobile-nav-actions {
+        display: flex !important;
+    }
+
+    .hamburger-btn {
+        display: flex !important;
+    }
+
+    .hero-container {
+        text-align: center;
+    }
+
+    .hero-container > div:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-checklist {
+        text-align: left;
+    }
+
+    .benefits-visual {
+        margin-top: 40px;
+    }
+
+    .section-header-grid p {
+        max-width: 100% !important;
+    }
+}
+
+/* Mobile Specific Tweaks */
+@media (max-width: 768px) {
+    section {
+        padding: 80px 0 !important;
+    }
+
+    .hero-container {
+        padding-top: 140px !important;
+    }
+
+    .hero-title {
+        font-size: 36px !important;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .step-arrow-v2 {
+        display: none !important;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-cta-card {
+        padding: 40px 24px !important;
+        border-radius: 32px !important;
+    }
+
+    .contact-cta-card h2 {
+        font-size: 28px !important;
+    }
+
+    .contact-cta-card .usp-list {
+        gap: 12px !important;
+    }
+}
+
+/* Extra Small Mobile */
 @media (max-width: 480px) {
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-  }
+    .hero-title {
+        font-size: 32px !important;
+    }
 
-  .btn-primary {
-    width: 100%;
-    justify-content: center;
-  }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
 
-  h1 {
-    font-size: 30px !important;
-  }
-
-  h2 {
-    font-size: 26px !important;
-  }
-
-  .hero-split h1 {
-    font-size: 30px !important;
-  }
+    .topbar-inner .usp-list > div:nth-child(n+2) {
+        display: none !important;
+    }
 }

@@ -5,19 +5,19 @@ import { ChevronDown, HelpCircle } from 'lucide-react';
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
     return (
         <div style={{
-            marginBottom: '16px',
+            marginBottom: '12px',
             background: 'white',
             borderRadius: '20px',
             overflow: 'hidden',
-            boxShadow: isOpen ? '0 15px 30px rgba(0,0,0,0.06)' : '0 4px 10px rgba(0,0,0,0.02)',
-            border: isOpen ? '1px solid var(--c-green)' : '1px solid rgba(0,0,0,0.05)',
-            transition: 'all 0.3s ease'
+            border: '1px solid var(--c-border)',
+            boxShadow: isOpen ? 'var(--shadow)' : 'var(--shadow-sm)',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
         }}>
             <button
                 onClick={onClick}
                 style={{
                     width: '100%',
-                    padding: '24px 30px',
+                    padding: '24px 32px',
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
@@ -33,16 +33,27 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
                     fontWeight: '800',
                     color: 'var(--c-navy)',
                     fontFamily: 'var(--font-outfit)',
-                    paddingRight: '20px'
+                    paddingRight: '20px',
+                    lineHeight: '1.3'
                 }}>
                     {question}
                 </span>
                 <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    style={{ color: isOpen ? 'var(--c-green)' : 'var(--c-text-muted)', flexShrink: 0 }}
+                    style={{ 
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '50%',
+                        background: isOpen ? 'var(--c-primary)' : 'var(--c-bg-light)',
+                        color: isOpen ? 'white' : 'var(--c-navy)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0 
+                    }}
                 >
-                    <ChevronDown size={24} />
+                    <ChevronDown size={18} strokeWidth={3} />
                 </motion.div>
             </button>
 
@@ -55,12 +66,13 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                     >
                         <div style={{
-                            padding: '0 30px 24px 30px',
+                            padding: '0 32px 32px 32px',
                             fontSize: '16px',
                             lineHeight: '1.7',
-                            color: '#475569',
+                            color: 'var(--c-text-muted)',
                             fontWeight: '500'
                         }}>
+                            <div style={{ height: '1px', background: 'var(--c-border)', marginBottom: '24px' }}></div>
                             {answer}
                         </div>
                     </motion.div>
@@ -109,24 +121,38 @@ const FAQ = () => {
     ];
 
     return (
-        <section style={{ padding: '70px 20px', background: '#F8FAFC' }}>
-            <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', color: 'var(--c-green)', marginBottom: '16px' }}>
-                        <HelpCircle size={24} />
-                        <span style={{ fontWeight: '800', fontSize: '14px', letterSpacing: '1px' }}>HULPCENTRUM</span>
+        <section style={{ padding: '120px 0', background: 'var(--c-bg-light)' }}>
+            <div style={{ maxWidth: '840px', margin: '0 auto', padding: '0 24px' }}>
+                <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+                    <div style={{
+                        color: 'var(--c-primary)',
+                        fontSize: '13px',
+                        fontWeight: '800',
+                        letterSpacing: '1.5px',
+                        marginBottom: '16px',
+                        textTransform: 'uppercase'
+                    }}>
+                        HULPCENTRUM
                     </div>
                     <h2 style={{
                         fontFamily: 'var(--font-outfit)',
-                        fontSize: '48px',
-                        fontWeight: '800',
+                        fontSize: 'clamp(2rem, 4vw, 3rem)',
+                        fontWeight: '900',
                         color: 'var(--c-navy)',
-                        marginBottom: '20px',
-                        letterSpacing: '-1.5px'
+                        lineHeight: '1.1',
+                        letterSpacing: '-1px',
+                        marginBottom: '20px'
                     }}>
                         Veelgestelde vragen
                     </h2>
-                    <p style={{ fontSize: '18px', color: 'var(--c-text-muted)', fontWeight: '500' }}>
+                    <p style={{ 
+                        fontSize: '18px', 
+                        lineHeight: '1.6',
+                        color: 'var(--c-text-muted)', 
+                        fontWeight: '500',
+                        maxWidth: '600px',
+                        margin: '0 auto'
+                    }}>
                         Alles wat je moet weten over verhuizen naar en financieren in België.
                     </p>
                 </div>

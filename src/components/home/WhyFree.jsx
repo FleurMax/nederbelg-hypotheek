@@ -1,116 +1,74 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Banknote, Info } from 'lucide-react';
+import { Check, ArrowRight, Info } from 'lucide-react';
 
 const WhyFree = () => {
     return (
         <section id="kosteloos-advies" style={{
-            padding: '70px 20px',
-            background: '#F8FAFC',
+            padding: '120px 0',
+            background: 'white',
             overflow: 'hidden'
         }}>
-            <div className="why-free-grid" style={{
-                maxWidth: 'var(--container-max)',
+            <div style={{
+                maxWidth: '900px',
                 margin: '0 auto',
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 0.9fr) minmax(0, 1.1fr)',
-                gap: '80px',
-                alignItems: 'center'
+                padding: '0 24px',
+                textAlign: 'center'
             }}>
-
-                {/* Image side */}
                 <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    style={{ position: 'relative' }}
-                >
-                    <div style={{
-                        borderRadius: '40px',
-                        overflow: 'hidden',
-                        boxShadow: '0 40px 80px rgba(0,0,0,0.1)',
-                        border: '10px solid white',
-                        background: 'white'
-                    }}>
-                        <img
-                            src="/images/pic2.jpg"
-                            alt="Waarom gratis?"
-                            style={{
-                                width: '100%',
-                                height: 'auto',
-                                display: 'block'
-                            }}
-                        />
-                    </div>
-                    {/* Decorative element */}
-                    <div style={{
-                        position: 'absolute',
-                        top: '-20px',
-                        left: '-20px',
-                        width: '100px',
-                        height: '100px',
-                        background: 'color-mix(in srgb, var(--c-green) 10%, transparent)',
-                        borderRadius: '50%',
-                        zIndex: -1
-                    }}></div>
-                </motion.div>
-
-                {/* Text side */}
-                <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
                     <div style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        background: 'color-mix(in srgb, var(--c-orange) 10%, transparent)',
-                        color: '#365314',
-                        padding: '8px 20px',
-                        borderRadius: '100px',
-                        fontSize: '12px',
+                        color: 'var(--c-primary)',
+                        fontSize: '13px',
                         fontWeight: '800',
-                        marginBottom: '24px',
-                        border: '1px solid color-mix(in srgb, var(--c-orange) 20%, transparent)',
-                        letterSpacing: '0.5px'
+                        letterSpacing: '1.5px',
+                        marginBottom: '16px',
+                        textTransform: 'uppercase'
                     }}>
-                        <Info size={14} color="var(--c-orange)" /> HOE HET WERKT
+                        HOE HET WERKT
                     </div>
 
                     <h2 style={{
                         fontFamily: 'var(--font-outfit)',
-                        fontSize: '44px',
-                        fontWeight: '800',
-                        lineHeight: '1.2',
-                        marginBottom: '28px',
+                        fontSize: 'clamp(2rem, 4vw, 3rem)',
+                        fontWeight: '900',
+                        lineHeight: '1.1',
                         color: 'var(--c-navy)',
-                        letterSpacing: '-1.5px'
+                        letterSpacing: '-1px',
+                        marginBottom: '28px'
                     }}>
-                        Waarom onze begeleiding voor jou <span style={{ color: 'var(--c-green)' }}>100% gratis</span> is
+                        Waarom onze begeleiding voor jou <span style={{ color: 'var(--c-primary)' }}>100% gratis</span> is
                     </h2>
 
                     <div style={{
-                        fontSize: '17px',
-                        lineHeight: '1.6',
-                        color: '#475569',
-                        marginBottom: '32px',
+                        fontSize: '18px',
+                        lineHeight: '1.7',
+                        color: 'var(--c-text-muted)',
                         fontWeight: '500'
                     }}>
-                        <p style={{ marginBottom: '20px' }}>
+                        <p style={{ marginBottom: '24px' }}>
                             In België werkt hypotheekadvies anders dan in Nederland. Wij worden rechtstreeks door de bank vergoed via een commissie op het leenbedrag. De bank betaalt ons voor het aanleveren van een compleet en kwalitatief kredietdossier.
                         </p>
-                        <p style={{ marginBottom: '24px' }}>
+                        <p style={{ marginBottom: '32px' }}>
                             Daardoor kunnen wij jou van begin tot eind begeleiden zonder dat dit jou iets kost. De bank rekent deze vergoeding niet door in jouw rente of voorwaarden, waardoor jij volledig gratis profiteert van onze expertise én begeleiding.
                         </p>
 
-                        <div style={{ marginBottom: '28px' }}>
-                            <p style={{ fontWeight: '700', color: 'var(--c-navy)', marginBottom: '16px', fontSize: '16px' }}>
+                        <div style={{ 
+                            background: 'var(--c-bg-light)', 
+                            padding: '40px', 
+                            borderRadius: '32px',
+                            border: '1px solid var(--c-border)',
+                            marginBottom: '40px',
+                            textAlign: 'left'
+                        }}>
+                            <p style={{ fontWeight: '800', color: 'var(--c-navy)', marginBottom: '24px', fontSize: '18px' }}>
                                 Tijdens onze begeleiding krijg je onder andere antwoord op vragen zoals:
                             </p>
-                            <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: '10px' }}>
+                            <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
                                 {[
                                     'Is mijn woonproject financieel haalbaar?',
                                     'Hoeveel kan ik lenen en welke kosten komen erbij kijken?',
@@ -118,9 +76,18 @@ const WhyFree = () => {
                                     'Welke rentevoet kan ik verwachten?',
                                     'Bij welke bank krijg ik de beste voorwaarden?'
                                 ].map((q, idx) => (
-                                    <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '15px', color: '#475569' }}>
-                                        <div style={{ background: 'var(--c-green)', borderRadius: '50%', width: '18px', height: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '3px', flexShrink: 0 }}>
-                                            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'white' }} />
+                                    <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '16px', color: 'var(--c-text-muted)' }}>
+                                        <div style={{ 
+                                            background: 'var(--c-primary-light)', 
+                                            borderRadius: '50%', 
+                                            width: '28px', 
+                                            height: '28px', 
+                                            display: 'flex', 
+                                            alignItems: 'center', 
+                                            justifyContent: 'center', 
+                                            flexShrink: 0 
+                                        }}>
+                                            <Check size={14} color="var(--c-primary)" strokeWidth={3} />
                                         </div>
                                         <span>{q}</span>
                                     </li>
@@ -129,21 +96,18 @@ const WhyFree = () => {
                         </div>
 
                         <p style={{
-                            fontWeight: '600',
+                            fontWeight: '700',
                             color: 'var(--c-navy)',
-                            fontSize: '17px',
+                            fontSize: '18px',
                             lineHeight: '1.6',
-                            padding: '24px',
-                            background: 'white',
-                            borderRadius: '20px',
-                            borderLeft: '5px solid var(--c-green)',
-                            boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
+                            padding: '32px',
+                            background: 'rgba(0, 85, 204, 0.03)',
+                            borderRadius: '24px',
+                            borderLeft: '4px solid var(--c-primary)',
                         }}>
                             Met onze begeleiding word je volledig ontzorgd. Wij stellen een optimaal dossier samen, vergelijken banken en zorgen dat je lening onder de beste voorwaarden wordt geregeld. Zo kun jij met een gerust hart je droomwoning kopen in België.
                         </p>
                     </div>
-
-                    {/* Safe/No cost block removed */}
                 </motion.div>
             </div>
         </section>

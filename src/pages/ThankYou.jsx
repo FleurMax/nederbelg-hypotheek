@@ -148,7 +148,7 @@ const ThankYou = () => {
                         </div>
                         <div>
                             <div style={{ fontSize: '12px', color: '#94a3b8', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Bel ons direct</div>
-                            <div style={{ fontSize: '15px', color: 'var(--c-navy)', fontWeight: '800' }}>+32/484.928.247</div>
+                            <div style={{ fontSize: '15px', color: 'var(--c-navy)', fontWeight: '800' }}>+32 495 32 61 01</div>
                         </div>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>

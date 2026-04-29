@@ -1,71 +1,74 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { Star, ArrowRight } from 'lucide-react';
 
 const TestimonialCard = ({ name, location, text }) => (
-    <div style={{
-        background: 'white',
-        borderRadius: '24px',
-        padding: '32px',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-        position: 'relative',
-        boxSizing: 'border-box',
-    }}>
-        <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
-            <img
-                src="https://www.vectorlogo.zone/logos/google/google-icon.svg"
-                alt="Google"
-                width="18"
-                height="18"
-                style={{ width: '18px', height: '18px', opacity: 0.8 }}
-            />
-        </div>
-
-        <div style={{ marginBottom: '20px', flex: 1 }}>
-            <div style={{ display: 'flex', gap: '2px', marginBottom: '14px' }}>
-                {[1, 2, 3, 4, 5].map(i => <Star key={i} size={14} fill="var(--c-orange)" color="var(--c-orange)" />)}
+    <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        style={{
+            background: 'white',
+            borderRadius: '24px',
+            padding: '32px',
+            border: '1px solid var(--c-border)',
+            boxShadow: 'var(--shadow-sm)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+            position: 'relative'
+        }}
+    >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: '2px' }}>
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} size={14} fill="#f59e0b" color="#f59e0b" />)}
             </div>
-            <p style={{
-                fontSize: '15px',
-                lineHeight: '1.7',
-                color: '#475569',
-                fontWeight: '500',
-                fontStyle: 'italic',
-                margin: 0
+            <div style={{
+                fontSize: '11px',
+                fontWeight: '800',
+                color: 'var(--c-green)',
+                background: 'rgba(0, 196, 140, 0.1)',
+                padding: '4px 10px',
+                borderRadius: '100px',
+                textTransform: 'uppercase'
             }}>
-                "{text}"
-            </p>
-        </div>
-
-        <div>
-            <div style={{ height: '1px', background: '#E2E8F0', marginBottom: '16px' }}></div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <div style={{
-                    width: '38px',
-                    height: '38px',
-                    background: 'color-mix(in srgb, var(--c-green) 10%, transparent)',
-                    color: 'var(--c-green)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: '800',
-                    fontSize: '14px',
-                    flexShrink: 0
-                }}>
-                    {name.charAt(0)}
-                </div>
-                <div>
-                    <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--c-navy)', margin: 0 }}>{name}</h4>
-                    <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--c-text-muted)' }}>{location}</span>
-                </div>
+                Geverifieerde koper
             </div>
         </div>
-    </div>
+
+        <p style={{
+            fontSize: '15px',
+            lineHeight: '1.7',
+            color: 'var(--c-text-muted)',
+            fontWeight: '500',
+            margin: 0,
+            flex: 1
+        }}>
+            "{text}"
+        </p>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '8px' }}>
+            <div style={{
+                width: '40px',
+                height: '40px',
+                background: 'var(--c-bg-light)',
+                color: 'var(--c-navy)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: '800',
+                fontSize: '14px',
+                border: '1px solid var(--c-border)'
+            }}>
+                {name.charAt(0)}
+            </div>
+            <div>
+                <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--c-navy)', margin: 0 }}>{name}</h4>
+                <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--c-text-light)' }}>{location}</span>
+            </div>
+        </div>
+    </motion.div>
 );
 
 const Testimonials = () => {
@@ -89,115 +92,96 @@ const Testimonials = () => {
             name: "Jasper",
             location: "Breda",
             text: "Als Nederlander wist ik niet dat een bod in België direct bindend was. Het team heeft eerst mijn budget berekend en me daarna geholpen met de juiste opschortende voorwaarde. Hypotheek was snel geregeld!"
-        },
-        {
-            name: "Stephanie",
-            location: "Eindhoven",
-            text: "Ik twijfelde of ik genoeg eigen geld had. Na een fijn gesprek kreeg ik een exact overzicht. Door de constante begeleiding wist ik precies wat er bij de notaris ging gebeuren."
         }
     ];
 
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 768);
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    /* Auto-scroll removed as requested */
-
-    const itemsPerView = isMobile ? 1 : 3;
-
     return (
         <section style={{
-            padding: '80px 0',
-            background: 'var(--c-navy)',
-            position: 'relative'
+            padding: '120px 0',
+            background: 'white',
+            overflow: 'hidden'
         }}>
-            <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '0 20px' }}>
-                <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', color: 'var(--c-green)', marginBottom: '16px' }}>
-                        <div style={{ display: 'flex', gap: '2px' }}>
-                            {[1, 2, 3, 4, 5].map(i => <Star key={i} size={16} fill="var(--c-green)" color="var(--c-green)" />)}
+            <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '0 24px' }}>
+                
+                {/* Header with Score Card */}
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1.2fr 0.8fr',
+                    gap: '40px',
+                    alignItems: 'center',
+                    marginBottom: '64px'
+                }} className="section-header-grid">
+                    <div>
+                        <div style={{
+                            color: 'var(--c-primary)',
+                            fontSize: '13px',
+                            fontWeight: '800',
+                            letterSpacing: '1.5px',
+                            marginBottom: '16px',
+                            textTransform: 'uppercase'
+                        }}>
+                            KLANTENVERHALEN
                         </div>
-                        <span style={{ fontWeight: '800', fontSize: '14px', letterSpacing: '1px' }}>GEMIDDELD EEN 9,2</span>
+                        <h2 style={{
+                            fontFamily: 'var(--font-outfit)',
+                            fontSize: 'clamp(2rem, 4vw, 3rem)',
+                            fontWeight: '900',
+                            color: 'var(--c-navy)',
+                            lineHeight: '1.1',
+                            letterSpacing: '-1px',
+                            margin: 0
+                        }}>
+                            Wat zeggen onze klanten over ons?
+                        </h2>
                     </div>
-                    <h2 style={{
-                        fontFamily: 'var(--font-outfit)',
-                        fontSize: '48px',
-                        fontWeight: '800',
-                        color: 'white',
-                        marginBottom: '20px',
-                        letterSpacing: '-1.5px'
-                    }}>
-                        Wat vinden onze klanten?
-                    </h2>
-                    <p style={{
-                        fontSize: '18px',
-                        color: '#B1BAD3',
-                        fontWeight: '500',
-                        maxWidth: '700px',
-                        margin: '0 auto'
-                    }}>
-                        Supertrots op de meer dan 500 Nederlanders die we al hebben begeleid bij het kopen van hun huis in België.
-                    </p>
-                </div>
 
-                {/* Carousel */}
-                <div style={{ overflow: 'hidden', width: '100%' }}>
-                    <motion.div
-                        animate={{ x: `-${activeIndex * (100 / itemsPerView)}%` }}
-                        transition={{ type: 'spring', stiffness: 120, damping: 22 }}
-                        style={{ display: 'flex', width: '100%' }}
-                    >
-                        {/* Duplicate reviews to allow seamless loop */}
-                        {[...reviews, ...reviews.slice(0, itemsPerView)].map((review, idx) => (
-                            <div
-                                key={idx}
-                                style={{
-                                    flex: `0 0 ${100 / itemsPerView}%`,
-                                    padding: `0 ${isMobile ? 0 : 12}px`,
-                                    boxSizing: 'border-box',
-                                }}
-                            >
-                                <TestimonialCard {...review} />
+                    <div style={{
+                        background: 'var(--c-bg-light)',
+                        borderRadius: '24px',
+                        padding: '32px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '24px',
+                        border: '1px solid var(--c-border)'
+                    }}>
+                        <div style={{ textAlign: 'center' }}>
+                            <div style={{ fontSize: '48px', fontWeight: '900', color: 'var(--c-navy)', fontFamily: 'var(--font-outfit)', lineHeight: '1' }}>4.9</div>
+                            <div style={{ fontSize: '12px', fontWeight: '800', color: 'var(--c-text-muted)', marginTop: '4px' }}>REVIEW SCORE</div>
+                        </div>
+                        <div style={{ width: '1px', height: '40px', background: 'var(--c-border)' }}></div>
+                        <div>
+                            <div style={{ display: 'flex', gap: '2px', marginBottom: '4px' }}>
+                                {[1, 2, 3, 4, 5].map(i => <Star key={i} size={18} fill="#f59e0b" color="#f59e0b" />)}
                             </div>
-                        ))}
-                    </motion.div>
+                            <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--c-navy)' }}>Gebaseerd op 87 reviews</div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Dots */}
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '36px' }}>
-                    {reviews.map((_, idx) => (
-                        <button
-                            key={idx}
-                            onClick={() => setActiveIndex(idx)}
-                            aria-label={`Getuigenis ${idx + 1} bekijken`}
-                            style={{
-                                width: activeIndex === idx ? '24px' : '8px',
-                                height: '28px', // Increase height for tap area
-                                padding: '10px 0', // Vertical padding for tap area
-                                borderRadius: '4px',
-                                background: 'transparent',
-                                border: 'none',
-                                cursor: 'pointer',
-                                display: 'flex',
-                                alignItems: 'center',
-                                transition: 'all 0.3s ease'
-                            }}
-                        >
-                            <div style={{
-                                width: activeIndex === idx ? '24px' : '8px',
-                                height: '8px',
-                                borderRadius: '4px',
-                                background: activeIndex === idx ? 'var(--c-green)' : 'rgba(255,255,255,0.2)',
-                                transition: 'inherit'
-                            }} />
-                        </button>
+                {/* Reviews Grid */}
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+                    gap: '24px'
+                }} className="reviews-grid">
+                    {reviews.map((review, idx) => (
+                        <TestimonialCard key={idx} {...review} />
                     ))}
+                </div>
+
+                <div style={{ textAlign: 'center', marginTop: '48px' }}>
+                    <a href="#" style={{ 
+                        fontSize: '15px', 
+                        fontWeight: '800', 
+                        color: 'var(--c-primary)', 
+                        textDecoration: 'none',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px'
+                    }}>
+                        Bekijk alle reviews op Google <ArrowRight size={16} />
+                    </a>
                 </div>
             </div>
         </section>

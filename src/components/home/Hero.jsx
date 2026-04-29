@@ -5,232 +5,267 @@ import { Check, Star, Video, MessageCircle } from 'lucide-react';
 const Hero = () => {
     return (
         <section id="home" style={{
-            background: '#F8FAFC',
-            minHeight: 'auto',
-            display: 'flex',
-            alignItems: 'center',
+            background: 'white',
+            padding: '180px 0 80px',
             position: 'relative',
-            paddingTop: '60px',
-            paddingBottom: '80px',
             overflow: 'hidden'
         }}>
-            <div className="hero-main-container" style={{
+            <div style={{
                 maxWidth: 'var(--container-max)',
                 margin: '0 auto',
-                padding: '0 20px',
-                width: '100%',
-                zIndex: 1
-            }}>
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
+                padding: '0 24px',
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '80px',
+                alignItems: 'center'
+            }} className="hero-container">
+
+                {/* Left Side: Content */}
+                <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="hero-card"
                 >
-                    {/* Left Side: Content */}
-                    <div className="hero-content-side" style={{
-                        padding: '80px 60px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
+                    <div style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        background: 'var(--c-primary-light)',
+                        color: 'var(--c-primary)',
+                        padding: '6px 14px',
+                        borderRadius: '100px',
+                        fontSize: '13px',
+                        fontWeight: '700',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                        marginBottom: '24px'
+                    }}>
+                        <div style={{ width: '6px', height: '6px', background: 'var(--c-primary)', borderRadius: '50%' }}></div>
+                        100% ONAFHANKELIJK ADVIES
+                    </div>
+
+                    <h1 style={{
+                        fontFamily: 'var(--font-outfit)',
+                        fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                        fontWeight: '900',
+                        lineHeight: '1.1',
+                        color: 'var(--c-navy)',
+                        letterSpacing: '-0.03em',
+                        marginBottom: '24px'
+                    }}>
+                        Jouw droomhuis in België,<br />
+                        <span style={{ color: 'var(--c-primary)' }}>
+                            gefinancierd met een Nederlands inkomen.
+                        </span>
+                    </h1>
+
+                    <p style={{
+                        fontSize: '18px',
+                        lineHeight: '1.7',
+                        color: 'var(--c-text-muted)',
+                        marginBottom: '36px',
+                        maxWidth: '600px',
+                        fontWeight: '500'
+                    }}>
+                        Wil je een woning in België kopen met een Nederlands inkomen? Wij berekenen wat je kunt lenen, begeleiden je bij de aankoop en regelen je hypotheek – volledig gratis.
+                    </p>
+
+                    <div style={{ display: 'grid', gap: '16px', marginBottom: '40px' }}>
+                        {[
+                            { label: 'Actief in heel België', desc: 'wij begeleiden je bij de aankoop van elke woning, waar in België deze ook staat.' },
+                            { label: 'Zekerheid over je budget', desc: 'We analyseren je inkomsten en berekenen je maximale leencapaciteit, zodat je precies weet wat je budget is voordat je aan je zoektocht begint.' },
+                            { label: 'Begeleiding bij aankoop en hypotheek', desc: 'heb je je droomwoning gevonden? Wij helpen je met het juiste bod en de voorwaarden, vergelijken alle banken en regelen je hypotheek volledig voor je.' },
+                            { label: 'Begeleiding vanop afstand', desc: 'we regelen alles zoveel mogelijk online.' }
+                        ].map((item, i) => (
+                            <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '15px' }}>
+                                <div style={{ marginTop: '3px', color: 'var(--c-primary)', background: 'var(--c-primary-light)', padding: '2px', borderRadius: '4px' }}>
+                                    <Check size={14} strokeWidth={4} />
+                                </div>
+                                <div style={{ lineHeight: '1.5' }}>
+                                    <strong style={{ color: 'var(--c-navy)', fontWeight: '800' }}>{item.label} – </strong>
+                                    <span style={{ fontWeight: '500', color: 'var(--c-text-muted)' }}>{item.desc}</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px' }}>
+                        <a
+                            href="https://wa.me/32495326101"
+                            onClick={() => {
+                                if (typeof window.gtag_report_conversion === 'function') {
+                                    window.gtag_report_conversion();
+                                }
+                            }}
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '10px',
+                                background: 'var(--c-primary)',
+                                color: 'white',
+                                padding: '16px 32px',
+                                borderRadius: '12px',
+                                fontSize: '16px',
+                                fontWeight: '800',
+                                textDecoration: 'none',
+                                boxShadow: '0 8px 20px rgba(0, 85, 204, 0.2)',
+                                transition: 'all 0.2s'
+                            }}
+                            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                        >
+                            Laat gratis berekenen wat je kan lenen
+                        </a>
+                        <a
+                            href="https://calendly.com/nederbelg-hypotheek/45min"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '10px',
+                                background: 'white',
+                                color: 'var(--c-primary)',
+                                border: '2px solid var(--c-primary)',
+                                padding: '14px 32px',
+                                borderRadius: '12px',
+                                fontSize: '16px',
+                                fontWeight: '800',
+                                textDecoration: 'none',
+                                transition: 'all 0.2s'
+                            }}
+                            onMouseOver={(e) => e.currentTarget.style.background = 'var(--c-primary-light)'}
+                            onMouseOut={(e) => e.currentTarget.style.background = 'white'}
+                        >
+                            <Video size={18} /> Plan een gratis videogesprek
+                        </a>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
+                        {[
+                            '100% gratis',
+                            'Persoonlijk advies',
+                            'Onafhankelijk',
+                            'Binnen 2 uur antwoord'
+                        ].map((usp, i) => (
+                            <div key={usp} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '700', color: 'var(--c-text-muted)' }}>
+                                <div style={{ width: '24px', height: '24px', background: 'var(--c-bg-light)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--c-primary)' }}>
+                                    <Check size={14} strokeWidth={3} />
+                                </div>
+                                {usp}
+                                {i < 3 && <div style={{ width: '1px', height: '12px', background: 'var(--c-border)', marginLeft: '12px' }} className="usp-sep"></div>}
+                            </div>
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* Right Side: Visual */}
+                <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8 }}
+                    style={{ position: 'relative' }}
+                    className="hero-visual"
+                >
+                    <div style={{
+                        background: 'white',
+                        borderRadius: '28px',
+                        border: '1px solid var(--c-border)',
+                        boxShadow: '0 30px 80px rgba(15, 23, 42, 0.08)',
+                        overflow: 'hidden',
                         position: 'relative',
                         zIndex: 2
                     }}>
-                        <h1 className="hero-title" style={{
-                            fontFamily: 'var(--font-outfit)',
-                            fontSize: '56px',
-                            fontWeight: '800',
-                            lineHeight: '1.05',
-                            marginBottom: '24px',
-                            letterSpacing: '-2.5px',
-                            color: 'var(--c-navy)'
-                        }}>
-                            Jouw droomhuis in België,<br />
-                            <span style={{ color: 'var(--c-green)' }}>gefinancierd met een Nederlands inkomen.</span>
-                        </h1>
-
-                        <div className="hero-description" style={{
-                            fontSize: '18px',
-                            lineHeight: '1.6',
-                            color: '#475569',
-                            marginBottom: '40px',
-                            maxWidth: '620px',
-                            fontWeight: '500'
-                        }}>
-                            <p>
-                                Wil je een woning in België kopen met een Nederlands inkomen? Wij berekenen wat je kunt lenen, begeleiden je bij de aankoop en regelen je hypotheek – volledig gratis.
-                            </p>
+                        <div style={{ background: 'var(--c-primary)', padding: '32px' }}>
+                            <div style={{ fontSize: '11px', fontWeight: '800', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>Uw berekening</div>
+                            <div style={{ fontFamily: 'var(--font-outfit)', fontSize: '24px', fontWeight: '800', color: 'white' }}>Hypotheek Simulatie 2026</div>
                         </div>
 
-                        {/* Checklist items in the hero */}
-                        <div className="hero-checklist" style={{ display: 'grid', gap: '16px', marginBottom: '40px' }}>
-                            {[
-                                { label: 'Actief in heel België', desc: 'wij begeleiden je bij de aankoop van elke woning, waar in België deze ook staat.' },
-                                { label: 'Zekerheid over je budget', desc: 'We analyseren je inkomsten en berekenen je maximale leencapaciteit, zodat je precies weet wat je budget is voordat je aan je zoektocht begint.' },
-                                { label: 'Begeleiding bij aankoop en hypotheek', desc: 'heb je je droomwoning gevonden? Wij helpen je met het juiste bod en de voorwaarden, vergelijken alle banken en regelen je hypotheek volledig voor je.' },
-                                { label: 'Begeleiding vanop afstand', desc: 'we regelen alles zoveel mogelijk online.' }
-                            ].map((item, i) => (
-                                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '15px' }}>
-                                    <div style={{ lineHeight: '1.4' }}>
-                                        <strong style={{ display: 'inline', color: 'var(--c-navy)', fontWeight: '800' }}>{item.label} – </strong>
-                                        <span style={{ fontWeight: '500', color: '#475569' }}>{item.desc}</span>
-                                    </div>
+                        <div style={{ padding: '32px' }}>
+                            <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
+                                <div style={{ flex: 1, background: 'var(--c-bg-light)', padding: '20px', borderRadius: '16px', textAlign: 'center' }}>
+                                    <div style={{ fontSize: '28px', fontWeight: '900', color: 'var(--c-primary)', fontFamily: 'var(--font-outfit)' }}>3,42%</div>
+                                    <div style={{ fontSize: '11px', color: 'var(--c-text-light)', fontWeight: '700', marginTop: '4px', textTransform: 'uppercase' }}>Vaste Rente</div>
                                 </div>
-                            ))}
+                                <div style={{ flex: 1, background: 'var(--c-bg-light)', padding: '20px', borderRadius: '16px', textAlign: 'center' }}>
+                                    <div style={{ fontSize: '28px', fontWeight: '900', color: 'var(--c-navy)', fontFamily: 'var(--font-outfit)' }}>25 jr</div>
+                                    <div style={{ fontSize: '11px', color: 'var(--c-text-light)', fontWeight: '700', marginTop: '4px', textTransform: 'uppercase' }}>Looptijd</div>
+                                </div>
+                            </div>
+
+                            <div style={{ marginBottom: '24px' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--c-text-muted)', fontWeight: '700', marginBottom: '8px' }}>
+                                    <span>Leningbedrag</span>
+                                    <span style={{ color: 'var(--c-navy)' }}>€ 345.000</span>
+                                </div>
+                                <div style={{ height: '6px', background: 'var(--c-bg-light)', borderRadius: '10px', overflow: 'hidden' }}>
+                                    <div style={{ width: '80%', height: '100%', background: 'linear-gradient(90deg, var(--c-primary), #4d8bff)', borderRadius: '10px' }}></div>
+                                </div>
+                            </div>
+
+                            <div style={{ height: '1px', background: 'var(--c-border)', margin: '24px 0' }}></div>
+
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <div style={{ fontSize: '14px', fontWeight: '700', color: 'var(--c-text-muted)' }}>Geschatte maandlast</div>
+                                <div style={{ textAlign: 'right' }}>
+                                    <div style={{ fontSize: '32px', fontWeight: '900', color: 'var(--c-navy)', fontFamily: 'var(--font-outfit)', lineHeight: '1' }}>€ 1.148</div>
+                                    <div style={{ fontSize: '11px', color: 'var(--c-text-light)', fontWeight: '700', marginTop: '4px' }}>Netto per maand</div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="hero-actions" style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            flexWrap: 'wrap',
-                            gap: '16px',
-                            marginBottom: '0px'
-                        }}>
-                            <motion.a
-                                whileHover={{ scale: 1.02, y: -2 }}
-                                whileTap={{ scale: 0.98 }}
-                                href="https://wa.me/32484928247"
-                                onClick={() => {
-                                    if (typeof window.gtag_report_conversion === 'function') {
-                                        window.gtag_report_conversion();
-                                    }
-                                }}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '12px',
-                                    background: 'var(--c-green)',
-                                    color: 'white',
-                                    padding: '18px 32px',
-                                    borderRadius: '16px',
-                                    fontSize: '17px',
-                                    fontWeight: '800',
-                                    textDecoration: 'none',
-                                    boxShadow: '0 10px 20px color-mix(in srgb, var(--c-green) 20%, transparent)',
-                                }}
-                            >
-                                <MessageCircle size={22} fill="currentColor" /> Laat gratis berekenen wat je kan lenen
-                            </motion.a>
-                            <motion.a
-                                whileHover={{ scale: 1.02, y: -2 }}
-                                whileTap={{ scale: 0.98 }}
-                                href="https://calendly.com/nederbelg-hypotheek/45min"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={() => {
-                                    if (typeof window.gtag_report_conversion === 'function') {
-                                        window.gtag_report_conversion();
-                                    }
-                                }}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '12px',
-                                    background: 'var(--c-navy)',
-                                    color: 'white',
-                                    padding: '18px 32px',
-                                    borderRadius: '16px',
-                                    fontSize: '17px',
-                                    fontWeight: '800',
-                                    textDecoration: 'none',
-                                    boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
-                                }}
-                            >
-                                <Video size={22} /> Plan een gratis videogesprek
-                            </motion.a>
+                        <div style={{ background: 'var(--c-bg-light)', padding: '16px', textAlign: 'center', borderTop: '1px solid var(--c-border)' }}>
+                            <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--c-text-muted)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                <Check size={16} color="var(--c-green)" /> Direct online resultaat
+                            </div>
                         </div>
                     </div>
 
-                    {/* Right Side: Image with blending transition */}
-                    <div className="hero-image-side" style={{
-                        position: 'relative',
-                        overflow: 'hidden',
-                        height: '100%'
-                    }}>
-                        <img 
-                            src="/images/hero.jpg" 
-                            alt="Belgian Dream House" 
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                objectPosition: 'center center',
-                                display: 'block'
-                            }} 
-                        />
-                        {/* Soft blended "overgang" between content and image */}
-                        <div className="hero-image-overlay" style={{
+                    {/* Floating Badges */}
+                    <motion.div
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        style={{
                             position: 'absolute',
-                            inset: 0,
-                            background: 'linear-gradient(to right, white 0%, rgba(255,255,255,0.8) 5%, transparent 25%)',
-                            zIndex: 1
-                        }}></div>
-                        
-                        {/* Rating floating element - Refined with avatars */}
-                        <div className="hero-rating-tag" style={{
-                            position: 'absolute',
-                            bottom: '30px',
-                            right: '30px',
+                            top: '-20px',
+                            right: '20px',
                             zIndex: 3,
-                            background: 'rgba(255,255,255,0.95)',
-                            backdropFilter: 'blur(10px)',
+                            background: 'white',
                             padding: '12px 20px',
-                            borderRadius: '24px',
-                            boxShadow: '0 20px 50px rgba(0,0,0,0.12)',
-                            border: '1px solid rgba(255,255,255,0.6)',
+                            borderRadius: '16px',
+                            boxShadow: 'var(--shadow)',
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '20px'
-                        }}>
-                            {/* Overlapping Avatars */}
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                {[
-                                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
-                                    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
-                                    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
-                                    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop',
-                                    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
-                                ].map((url, i) => (
-                                    <div key={i} style={{
-                                        width: '38px',
-                                        height: '38px',
-                                        borderRadius: '50%',
-                                        border: '2px solid white',
-                                        overflow: 'hidden',
-                                        marginLeft: i === 0 ? 0 : '-14px',
-                                        boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-                                        zIndex: 5 - i
-                                    }}>
-                                        <img src={url} alt="Customer" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                    </div>
-                                ))}
-                            </div>
+                            gap: '10px',
+                            border: '1px solid var(--c-border)'
+                        }}
+                    >
+                        <div style={{ width: '8px', height: '8px', background: 'var(--c-green)', borderRadius: '50%', boxShadow: '0 0 0 4px rgba(0, 196, 140, 0.2)' }}></div>
+                        <span style={{ fontSize: '13px', fontWeight: '800', color: 'var(--c-navy)' }}>Adviseur online</span>
+                    </motion.div>
 
-                            {/* Stars and Score Column */}
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <div style={{ display: 'flex', gap: '2px' }}>
-                                        {[1, 2, 3, 4, 5].map((_, i) => (
-                                            <Star key={i} size={16} fill="#FFD700" color="#FFD700" />
-                                        ))}
-                                    </div>
-                                    <span style={{ fontWeight: '900', color: 'var(--c-navy)', fontSize: '18px', fontFamily: 'var(--font-outfit)' }}>4.8</span>
-                                </div>
-                                <div style={{ 
-                                    fontSize: '11px', 
-                                    fontWeight: '800', 
-                                    color: 'var(--c-text-muted)', 
-                                    letterSpacing: '0.05em',
-                                    fontFamily: 'var(--font-outfit)',
-                                    marginTop: '-2px'
-                                }}>
-                                    KLANTTEVREDENHEID
-                                </div>
-                            </div>
+                    <motion.div
+                        animate={{ y: [0, 10, 0] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        style={{
+                            position: 'absolute',
+                            bottom: '40px',
+                            left: '-30px',
+                            zIndex: 3,
+                            background: 'white',
+                            padding: '16px 24px',
+                            borderRadius: '16px',
+                            boxShadow: 'var(--shadow)',
+                            border: '1px solid var(--c-border)'
+                        }}
+                        className="hero-rating-badge"
+                    >
+                        <div style={{ display: 'flex', gap: '2px', color: '#f59e0b', marginBottom: '4px' }}>
+                            {[1, 2, 3, 4, 5].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
                         </div>
-                    </div>
+                        <div style={{ fontSize: '18px', fontWeight: '900', color: 'var(--c-navy)', fontFamily: 'var(--font-outfit)' }}>4.9 / 5.0</div>
+                        <div style={{ fontSize: '11px', fontWeight: '700', color: 'var(--c-text-light)', textTransform: 'uppercase', marginTop: '2px' }}>87 Reviews</div>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

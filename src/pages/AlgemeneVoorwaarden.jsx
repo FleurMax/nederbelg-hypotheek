@@ -51,7 +51,7 @@ const AlgemeneVoorwaarden = () => {
                     <p><strong>Nederbelg Hypotheek</strong></p>
                     <p>Camille D'Havestraat 43, 9040 Gent</p>
                     <p>E-mail: info@nederbelghypotheek.be</p>
-                    <p>Telefoon: +32/484.928.247</p>
+                    <p>Telefoon: +32 495 32 61 01</p>
                 </div>
             </LegalSection>
         </LegalLayout>

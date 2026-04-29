@@ -75,7 +75,7 @@ const WhatsAppWidget = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    href="https://wa.me/32484928247"
+                    href="https://wa.me/32495326101"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
