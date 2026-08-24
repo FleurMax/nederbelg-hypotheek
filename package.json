@@ -1,0 +1,9 @@
+{
+  "name": "nederbelg-hypotheek",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nederbelg Hypotheek",
+  "scripts": {
+    "build": "echo 'Static site, build complete'"
+  }
+}
