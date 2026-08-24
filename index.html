@@ -1736,10 +1736,10 @@
             <div class="field">
               <label for="fStage">Waar sta je nu?</label>
               <select id="fStage" name="stage">
-                <option>Ik oriënteer me nog</option>
-                <option>Ik ben actief aan het zoeken</option>
-                <option>Ik heb een woning op het oog</option>
-                <option>Mijn bod is geaccepteerd</option>
+                <option value="Ik oriënteer me nog">Ik oriënteer me nog</option>
+                <option value="Ik ben actief aan het zoeken">Ik ben actief aan het zoeken</option>
+                <option value="Ik heb een woning op het oog">Ik heb een woning op het oog</option>
+                <option value="Mijn bod is geaccepteerd">Mijn bod is geaccepteerd</option>
               </select>
             </div>
             <button type="submit" class="btn btn-primary">Verstuur — reactie binnen 4 uur <span aria-hidden="true">→</span></button>
@@ -1837,6 +1837,16 @@
   <input type="tel" name="telefoon">
   <input type="email" name="email">
   <textarea name="bericht"></textarea>
+</form>
+
+<!-- Netlify Form Detection for Lead Form -->
+<form name="lead-aanvraag" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="lead-aanvraag">
+  <input type="text" name="bot-field">
+  <input type="text" name="name">
+  <input type="email" name="email">
+  <input type="tel" name="phone">
+  <input type="text" name="stage">
 </form>
 
 <script>
@@ -1969,19 +1979,40 @@
   });
 
   /* ================= FORMULIER ONDERAAN ================= */
-  const form=document.getElementById('leadForm');
-  form.addEventListener('submit',e=>{
+  const leadForm = document.getElementById('leadForm');
+  leadForm.addEventListener('submit', e => {
     e.preventDefault();
-    if(!form.checkValidity()){form.reportValidity();return;}
-    
-    const formData = new FormData(form);
+    const name = document.getElementById('fName');
+    const email = document.getElementById('fEmail');
+    const phone = document.getElementById('fPhone');
+    const stage = document.getElementById('fStage');
+
+    for (const f of [name, phone, email]) {
+      if (!f.value.trim()) {
+        f.focus();
+        f.style.borderColor = '#C0392B';
+        return;
+      }
+      f.style.borderColor = '';
+    }
+
+    const bodyParams = new URLSearchParams({
+      'form-name': 'lead-aanvraag',
+      'name': name.value.trim(),
+      'email': email.value.trim(),
+      'phone': phone.value.trim(),
+      'stage': stage ? stage.value : ''
+    });
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
-    }).catch(err => console.error("Netlify form error:", err));
+      body: bodyParams.toString()
+    }).catch(err => console.error("Netlify lead form error:", err));
 
-    Array.from(form.children).forEach(c=>{if(!c.classList.contains('form-success'))c.style.display='none';});
+    Array.from(leadForm.children).forEach(c => {
+      if (!c.classList.contains('form-success')) c.style.display = 'none';
+    });
     document.getElementById('formSuccess').classList.add('show');
   });
 </script>
