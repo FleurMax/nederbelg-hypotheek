@@ -539,7 +539,29 @@
     --maxw:1140px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{
+    scroll-behavior:smooth;
+    scroll-padding-top:84px;
+  }
+  @media (max-width:959px){
+    html{scroll-padding-top:68px;}
+  }
+  section[id], [id]{
+    scroll-margin-top:84px;
+  }
+  @media (max-width:959px){
+    section[id], [id]{
+      scroll-margin-top:68px;
+    }
+  }
+  #bereken{
+    scroll-margin-top:96px;
+  }
+  @media (max-width:959px){
+    #bereken{
+      scroll-margin-top:68px;
+    }
+  }
   body{
     margin:0; background:#FFFFFF; color:var(--slate-500);
     font-family:'Inter', system-ui, sans-serif;
@@ -2015,6 +2037,28 @@
     });
     document.getElementById('formSuccess').classList.add('show');
   });
+
+  /* ================= SMOOTH SCROLL MET HEADER-OFFSET ================= */
+  function handleHashScroll(){
+    if(!window.location.hash) return;
+    const target = document.querySelector(window.location.hash);
+    if(target){
+      const header = document.querySelector('header');
+      const headerH = header ? header.offsetHeight : 70;
+      const isDesktop = window.innerWidth >= 960;
+      // Op desktop: iets meer marge omhoog (90px) zodat de hele form + context zichtbaar is; op mobiel direct naar de form
+      const extraMargin = isDesktop ? 22 : 12;
+      const targetTop = target.getBoundingClientRect().top + window.pageYOffset - (headerH + extraMargin);
+      window.scrollTo({top: Math.max(0, targetTop), behavior: 'smooth'});
+    }
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    if(window.location.hash){ setTimeout(handleHashScroll, 80); }
+  });
+  window.addEventListener('load', () => {
+    if(window.location.hash){ setTimeout(handleHashScroll, 50); }
+  });
+  window.addEventListener('hashchange', handleHashScroll);
 </script>
 
 </body>
