@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#EEF3FB"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.15" r="0.6"><stop offset="0%" stop-color="#FFDCA8" stop-opacity="0.35"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(80,80)">
+    <rect width="110" height="110" rx="22" fill="#0F3D91"/>
+    <g transform="scale(2.5)">
+      <path d="M8 26 L22 12 L36 26" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <line x1="11" y1="34" x2="33" y2="34" stroke="#F26722" stroke-width="2.8" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text x="80" y="310" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="58" fill="#0F3D91" letter-spacing="-1.8">Jouw droomhuis in België,</text>
+  <text x="80" y="370" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="58" fill="#0F3D91" letter-spacing="-1.8">gefinancierd met een</text>
+  <text x="80" y="430" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="58" fill="#0F3D91" letter-spacing="-1.8">Nederlands inkomen.</text>
+  <text x="80" y="490" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="22" fill="#2A3A55">Wij vergelijken meerdere Belgische kredietgevers — volledig gratis begeleid.</text>
+  <g transform="translate(80,530)">
+    <rect width="10" height="10" rx="5" fill="#F26722"/>
+    <text x="20" y="10" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="15" fill="#0E1A2F">nederbelghypotheek.be</text>
+  </g>
+</svg>

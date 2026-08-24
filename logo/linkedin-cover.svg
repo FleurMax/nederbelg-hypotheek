@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0F3D91"/><stop offset="100%" stop-color="#0A1A33"/></linearGradient></defs>
+  <rect width="1584" height="396" fill="url(#bg)"/>
+  <g transform="translate(120,120)">
+    <rect width="160" height="160" rx="30" fill="#FFFFFF"/>
+    <g transform="scale(3.636)">
+      <path d="M8 26 L22 12 L36 26" stroke="#0F3D91" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <line x1="11" y1="34" x2="33" y2="34" stroke="#F26722" stroke-width="2.8" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text x="320" y="180" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="58" fill="#FFFFFF" letter-spacing="-2">Nederbelg</text>
+  <text x="320" y="238" font-family="Fraunces, Georgia, serif" font-weight="700" font-style="italic" font-size="58" fill="#F26722" letter-spacing="-2">Hypotheek</text>
+  <text x="320" y="285" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="22" fill="#B9C6E4">Belgische hypotheek met een Nederlands inkomen — gratis begeleiding.</text>
+</svg>
