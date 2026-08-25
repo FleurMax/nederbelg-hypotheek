@@ -1255,13 +1255,14 @@
         </div>
 
         <div class="wiz-panel" data-step="3">
-          <div class="calc-result" style="margin-top:4px;">
+          <button type="button" class="btn-back" id="wizBack3" style="margin-top:2px; margin-bottom:8px; padding:9px 15px; font-size:13.5px;"><span aria-hidden="true">←</span> Terug</button>
+          <div class="calc-result" style="margin-top:2px;">
             <div class="calc-result-label" id="sumSituation">—</div>
             <div class="calc-result-value figure"><span class="cur">€</span> <span id="sumMonthly">—</span> <span class="cur">/maand</span></div>
             <div class="calc-breakdown">
               <div class="calc-breakdown-row"><span>Leenbedrag</span><span class="val figure" id="sumLoan">—</span></div>
             </div>
-            <p class="calc-note" style="margin-top:12px; margin-bottom:0; color:#B9C6E4;"><strong style="color:#FFFFFF;">Dit is een eerste oriëntatie.</strong> De berekening verschilt per dossier, kredietgever en woning.</p>
+            <p class="calc-note" style="margin-top:12px; margin-bottom:0; color:#B9C6E4;"><strong style="color:#FFFFFF;">Dit is een eerste oriëntatie.</strong> De berekening verschilt per dossier, kredietgever, woning en gewest.</p>
           </div>
           <div id="wizFormFields">
             <p class="wiz-q" style="margin-top:18px;">Ontvang je persoonlijke berekening — gratis:</p>
@@ -1285,7 +1286,7 @@
           <button type="button" class="btn-back" id="wizBack" hidden><span aria-hidden="true">←</span> Terug</button>
           <button type="button" class="btn btn-primary" id="wizNext" disabled>Volgende <span aria-hidden="true">→</span></button>
         </div>
-        <p class="calc-note"><strong style="color:var(--slate-700);">Dit is een eerste oriëntatie.</strong> De berekening verschilt per dossier, kredietgever, woning en gewest.</p>
+        <p class="calc-note" id="wizBottomNote"><strong style="color:var(--slate-700);">Dit is een eerste oriëntatie.</strong> De berekening verschilt per dossier, kredietgever, woning en gewest.</p>
       </div>
     </div>
   </section>
@@ -1979,8 +1980,10 @@
     btnBack.hidden=step===1;
     btnNext.hidden=step===3;
     btnNext.disabled=(step===1&&!state.situation);
-    // Op stap 3: hele knoppenrij verbergen — submit is de volgende actie, terug kan via de stappen bovenaan
+    // Op stap 3: hele knoppenrij verbergen — submit is de volgende actie, terug kan via de knop of stappen bovenaan
     document.querySelector('.wiz-nav').style.display = (step===3) ? 'none' : 'flex';
+    const bNote = document.getElementById('wizBottomNote');
+    if(bNote) bNote.style.display = (step===3) ? 'none' : 'block';
     if(step===3) paint();
   }
   document.querySelectorAll('.wiz-opt').forEach(opt=>opt.addEventListener('click',()=>{
@@ -1994,6 +1997,7 @@
   }));
   btnNext.addEventListener('click',()=>show(Math.min(3,state.step+1)));
   btnBack.addEventListener('click',()=>show(Math.max(1,state.step-1)));
+  document.getElementById('wizBack3').addEventListener('click',()=>show(2));
   [priceEl,termEl].forEach(el=>el.addEventListener('input',paint));
   paint(); show(1);
 
@@ -2024,6 +2028,7 @@
     document.getElementById('wizFormFields').style.display='none';
     document.getElementById('wizSuccess').classList.add('show');
     document.querySelector('.wiz-nav').style.display='none';
+    document.getElementById('wizBack3').style.display='none';
   });
 
   /* ================= FORMULIER ONDERAAN ================= */
