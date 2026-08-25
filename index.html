@@ -1242,24 +1242,16 @@
 
         <div class="wiz-panel" data-step="2">
           <div class="calc-field" style="margin-top:4px;">
-            <div class="calc-field-head"><label for="wPrice">Aankoopprijs woning</label><output class="figure" id="wPriceOut">€ 385.000</output></div>
-            <input type="range" id="wPrice" min="150000" max="800000" step="5000" value="385000">
+            <div class="calc-field-head"><label for="wPrice">Aankoopprijs woning</label><output class="figure" id="wPriceOut">€ 275.000</output></div>
+            <input type="range" id="wPrice" min="150000" max="800000" step="5000" value="275000">
           </div>
           <div class="calc-field">
             <div class="calc-field-head"><label for="wTerm">Looptijd</label><output class="figure" id="wTermOut">25 jaar</output></div>
             <input type="range" id="wTerm" min="10" max="30" step="1" value="25">
           </div>
-          <div class="calc-field">
-            <label for="wRegion" style="color:var(--slate-500); font-size:13.5px; font-weight:500; display:block; margin-bottom:8px;">Gewest van de woning</label>
-            <select class="region-select" id="wRegion">
-              <option value="vl" selected>Vlaanderen — 2% registratierechten</option>
-              <option value="wa">Wallonië — 3% registratierechten</option>
-              <option value="br">Brussel — 12,5%, vrijstelling eerste €200.000</option>
-            </select>
-          </div>
           <div class="wiz-mini">
             <div class="wiz-mini-item"><span class="k">Geschatte maandlast</span><span class="v figure" id="wMonthly">—</span></div>
-                      </div>
+          </div>
         </div>
 
         <div class="wiz-panel" data-step="3">
@@ -1267,9 +1259,9 @@
             <div class="calc-result-label" id="sumSituation">—</div>
             <div class="calc-result-value figure"><span class="cur">€</span> <span id="sumMonthly">—</span> <span class="cur">/maand</span></div>
             <div class="calc-breakdown">
-              <div class="calc-breakdown-row"><span>Leenbedrag (90% van de prijs)</span><span class="val figure" id="sumLoan">—</span></div>
-              <div class="calc-breakdown-row"><span>Benodigd eigen geld (incl. kosten)</span><span class="val figure" id="sumSavings">—</span></div>
+              <div class="calc-breakdown-row"><span>Leenbedrag</span><span class="val figure" id="sumLoan">—</span></div>
             </div>
+            <p class="calc-note" style="margin-top:12px; margin-bottom:0; color:#B9C6E4;"><strong style="color:#FFFFFF;">Dit is een eerste oriëntatie.</strong> De berekening verschilt per dossier, kredietgever en woning.</p>
           </div>
           <div id="wizFormFields">
             <p class="wiz-q" style="margin-top:18px;">Ontvang je persoonlijke berekening — gratis:</p>
@@ -1956,33 +1948,27 @@
   }));
 
   /* ================= HYPOTHEEKCHECK-WIZARD ================= */
-  const RATE=3.42, LTV=0.90, NOTARIS=5000; // indicatief — jaarlijks controleren
+  const RATE=3.42; // indicatief — jaarlijks controleren
   const state={step:1, situation:null};
   const panels=[...document.querySelectorAll('.wiz-panel')];
   const stepsUI=[...document.querySelectorAll('.wiz-steps li')];
   const bar=document.getElementById('wizBar');
   const btnNext=document.getElementById('wizNext'), btnBack=document.getElementById('wizBack');
-  const priceEl=document.getElementById('wPrice'), termEl=document.getElementById('wTerm'), regionEl=document.getElementById('wRegion');
+  const priceEl=document.getElementById('wPrice'), termEl=document.getElementById('wTerm');
 
-  function regRate(){return regionEl.value==='vl'?0.02:regionEl.value==='wa'?0.03:null;}
   function calc(){
     const price=+priceEl.value, years=+termEl.value;
-    const loan=price*LTV, r=(RATE/100)/12, n=years*12;
+    const loan=price, r=(RATE/100)/12, n=years*12;
     const monthly=loan*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
-    let reg = regionEl.value==='br' ? Math.max(0,price-200000)*0.125 : price*regRate();
-    const savings=(price-loan)+reg+NOTARIS;
-    return {price,loan,monthly,savings,years};
+    return {price,loan,monthly,years};
   }
   function paint(){
     const c=calc();
     document.getElementById('wPriceOut').textContent='€ '+fmt(c.price);
     document.getElementById('wTermOut').textContent=c.years+' jaar';
     document.getElementById('wMonthly').textContent='€ '+fmt(c.monthly);
-    // wSavings-element verwijderd uit wizard
-    var _ws=document.getElementById('wSavings'); if(_ws) _ws.textContent='€ '+fmt(c.savings);
     document.getElementById('sumMonthly').textContent=fmt(c.monthly);
     document.getElementById('sumLoan').textContent='€ '+fmt(c.loan);
-    document.getElementById('sumSavings').textContent='€ '+fmt(c.savings);
     document.getElementById('sumSituation').textContent=state.situation||'Jouw indicatie';
   }
   function show(step){
@@ -2008,7 +1994,7 @@
   }));
   btnNext.addEventListener('click',()=>show(Math.min(3,state.step+1)));
   btnBack.addEventListener('click',()=>show(Math.max(1,state.step-1)));
-  [priceEl,termEl,regionEl].forEach(el=>el.addEventListener('input',paint));
+  [priceEl,termEl].forEach(el=>el.addEventListener('input',paint));
   paint(); show(1);
 
   document.getElementById('wizSubmit').addEventListener('click',()=>{
@@ -2016,16 +2002,13 @@
     for(const f of [name,phone,email]){ if(!f.value.trim()){ f.focus(); f.style.borderColor='#C0392B'; return;} f.style.borderColor=''; }
     
     const c = calc();
-    const regLabel = regionEl.options[regionEl.selectedIndex] ? regionEl.options[regionEl.selectedIndex].text : regionEl.value;
     const bodyParams = new URLSearchParams({
       'form-name': 'hypotheekcheck-wizard',
       'situatie': state.situation || 'Niet gespecificeerd',
       'aankoopprijs': '€ ' + fmt(c.price),
       'looptijd': c.years + ' jaar',
-      'gewest': regLabel,
       'geschatte_maandlast': '€ ' + fmt(c.monthly),
       'leenbedrag': '€ ' + fmt(c.loan),
-      'benodigd_eigen_geld': '€ ' + fmt(c.savings),
       'naam': name.value.trim(),
       'telefoon': phone.value.trim(),
       'email': email.value.trim(),
