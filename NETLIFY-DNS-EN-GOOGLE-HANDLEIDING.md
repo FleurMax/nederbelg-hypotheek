@@ -24,7 +24,7 @@ Belangrijk: een domeinredirect werkt alleen als het `.nl`-domein aan hetzelfde N
 
 ## 3. `nederbelg-hypotheek.nl` uitschakelen
 
-De wens is om dit domein niet meer door te sturen, maar echt buiten gebruik te stellen.
+De websitecode stuurt dit domein voorlopig met een 301 door naar de `.be`, zodat er nu al geen duplicate content meer wordt aangeboden. De wens is om het domein daarna niet meer door te sturen, maar echt buiten gebruik te stellen.
 
 1. Verwijder `nederbelg-hypotheek.nl` en `www.nederbelg-hypotheek.nl` bij **Production domains** van het Netlify-project.
 2. Open daarna de DNS-zone van dit domein.

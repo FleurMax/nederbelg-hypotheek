@@ -40,6 +40,31 @@
   status = 301
   force = true
 
+# Veilig vangnet tot het domein met koppelteken handmatig is uitgeschakeld.
+[[redirects]]
+  from = "http://nederbelg-hypotheek.nl/*"
+  to = "https://nederbelghypotheek.be/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://nederbelg-hypotheek.nl/*"
+  to = "https://nederbelghypotheek.be/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.nederbelg-hypotheek.nl/*"
+  to = "https://nederbelghypotheek.be/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.nederbelg-hypotheek.nl/*"
+  to = "https://nederbelghypotheek.be/:splat"
+  status = 301
+  force = true
+
 # Oude /blog/...-adressen blijven bruikbaar en wijzen naar de echte /blogs/-map.
 [[redirects]]
   from = "/blog/:slug"
