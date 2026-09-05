@@ -1,3 +1,48 @@
 [build]
   command = "node build.js"
   publish = "dist"
+
+# Hoofddomein: altijd zonder www.
+[[redirects]]
+  from = "http://www.nederbelghypotheek.be/*"
+  to = "https://nederbelghypotheek.be/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.nederbelghypotheek.be/*"
+  to = "https://nederbelghypotheek.be/:splat"
+  status = 301
+  force = true
+
+# Het .nl-domein blijft bestaan als permanente doorverwijzing.
+[[redirects]]
+  from = "http://nederbelghypotheek.nl/*"
+  to = "https://nederbelghypotheek.be/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://nederbelghypotheek.nl/*"
+  to = "https://nederbelghypotheek.be/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.nederbelghypotheek.nl/*"
+  to = "https://nederbelghypotheek.be/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.nederbelghypotheek.nl/*"
+  to = "https://nederbelghypotheek.be/:splat"
+  status = 301
+  force = true
+
+# Oude /blog/...-adressen blijven bruikbaar en wijzen naar de echte /blogs/-map.
+[[redirects]]
+  from = "/blog/:slug"
+  to = "/blogs/blog-:slug.html"
+  status = 301
+  force = true

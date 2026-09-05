@@ -4,6 +4,8 @@
   "private": true,
   "description": "Nederbelg Hypotheek",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "update:blog": "node scripts/update-article-seo.js && node scripts/update-blog-index.js && node scripts/generate-sitemap.js",
+    "check": "node scripts/validate-site.js"
   }
 }
