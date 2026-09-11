@@ -4,7 +4,7 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 const blogDir = path.join(root, 'blogs');
 const socialImage = 'https://nederbelghypotheek.be/logo/og-image.jpg';
-const modifiedDate = '2026-09-05';
+const modifiedDate = '2026-09-11';
 
 const optimized = {
   'blog-belgische-bank-nederlands-inkomen-beoordeling.html': {
@@ -87,6 +87,14 @@ for (const name of fs.readdirSync(blogDir).filter((file) => file.endsWith('.html
   const headline = match(/<h1>([\s\S]*?)<\/h1>/i).replace(/<[^>]+>/g, '').trim() || title;
   const description = match(/<meta name="description" content="([^"]+)"/i);
   const canonical = match(/<link rel="canonical" href="([^"]+)"/i);
+  const upsertMeta = (expression, tag) => expression.test(html)
+    ? html.replace(expression, tag)
+    : html.replace('</head>', `  ${tag}\n</head>`);
+
+  html = upsertMeta(/<meta property="og:url" content="[^"]*">/i, `<meta property="og:url" content="${canonical}">`);
+  html = upsertMeta(/<meta name="twitter:url" content="[^"]*">/i, `<meta name="twitter:url" content="${canonical}">`);
+  html = upsertMeta(/<meta property="og:image" content="[^"]*">/i, `<meta property="og:image" content="${socialImage}">`);
+  html = upsertMeta(/<meta name="twitter:image" content="[^"]*">/i, `<meta name="twitter:image" content="${socialImage}">`);
   const existingSchema = match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/i);
   let publishedDate = '';
 

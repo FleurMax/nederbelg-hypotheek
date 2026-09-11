@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 require('./scripts/update-article-seo');
+require('./scripts/update-shared-navigation');
 require('./scripts/update-blog-index');
 require('./scripts/generate-sitemap');
 require('./scripts/validate-site');

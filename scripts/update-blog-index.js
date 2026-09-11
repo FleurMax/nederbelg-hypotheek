@@ -32,12 +32,20 @@ const articles = fs.readdirSync(blogDir)
 const escapeAttribute = (value) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 const escapeText = (value) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-const cards = articles.map((article) => `      <a class="blog-card" href="blogs/${article.name}">
+const createCard = (article, isPillar = false) => `      <a class="blog-card${isPillar ? ' blog-card--pillar' : ''}" href="blogs/${article.name}">
         <span class="blog-card-meta">${escapeText(article.category)} · ${escapeText(article.meta)}</span>
         <h2>${escapeText(article.title)}</h2>
         <p>${escapeText(article.description)}</p>
         <span class="blog-card-read">Lees het artikel →</span>
-      </a>`).join('\n');
+      </a>`;
+
+const pillarName = 'blog-hypotheek-belgie-nederlander.html';
+const pillar = articles.find((article) => article.name === pillarName);
+const regularArticles = articles.filter((article) => article.name !== pillarName);
+const cards = [
+  ...(pillar ? [createCard(pillar, true)] : []),
+  ...regularArticles.map((article) => createCard(article)),
+].join('\n');
 
 const replacement = `<section class="blog-section">
   <div class="wrap">

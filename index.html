@@ -127,8 +127,6 @@
     verwijderd.
   • Testimonials: Sandra, Bas, Pieternella (namen ingevuld).
   • FAQ spaargeld + eigen inbreng: nieuwe teksten.
-  • Waarom-wij statcard: 87% → 96% + nieuwe tekst zonder
-    voorbeeldwaarschuwing.
   • Transparantie-flow: stap 3 = "Wij dienen jouw dossier in",
     stap 4 = "Kredietgever vergoedt ons".
   • Diff-side (statcard + visual) op mobiel gecentreerd.
@@ -528,13 +526,158 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"Kan ik een Belgische hypotheek krijgen met een Nederlands inkomen?","acceptedAnswer":{"@type":"Answer","text":"Ja, dat kan, maar het is maatwerk. Niet elke Belgische bank accepteert een buitenlands inkomen en de voorwaarden zijn streng. Het succes van je aanvraag valt of staat met de juiste voorbereiding."}},
-    {"@type":"Question","name":"Wat kost jullie begeleiding?","acceptedAnswer":{"@type":"Answer","text":"Niets. Wij ontvangen een vergoeding van de kredietgever wanneer een krediet tot stand komt. Die vergoeding wordt niet doorgerekend in jouw rente of voorwaarden."}},
-    {"@type":"Question","name":"Zijn jullie gebonden aan één bank?","acceptedAnswer":{"@type":"Answer","text":"Nee. Wij vergelijken meerdere Belgische kredietgevers en zoeken gericht naar de banken die bij jouw profiel passen."}},
-    {"@type":"Question","name":"Hoeveel spaargeld heb ik écht nodig?","acceptedAnswer":{"@type":"Answer","text":"Bij de aankoop van een woning kun je in België tot 100% van de aankoopprijs financieren. De bijkomende aankoopkosten (registratierechten en notariskosten) moet je wel zelf voorzien. Ter indicatie: bij een woning van €250.000 is dat ongeveer €9.500."}},
-    {"@type":"Question","name":"Kan ik de overwaarde van mijn Nederlandse woning gebruiken?","acceptedAnswer":{"@type":"Answer","text":"Ja, na verkoop kun je de overwaarde inzetten als eigen inbreng. Een klassieke overbrugging is vaak niet mogelijk, omdat een Belgische bank geen hypotheek kan vestigen op een Nederlandse woning. De timing van verkoop en aankoop plannen we daarom zorgvuldig."}},
-    {"@type":"Question","name":"Kan ik zomaar een bod uitbrengen op een woning?","acceptedAnswer":{"@type":"Answer","text":"In België is een bod direct bindend zodra de verkoper het accepteert, en er is geen wettelijke bedenktijd zoals in Nederland. Wij helpen je bij het opnemen van een opschortende voorwaarde voor financiering als extra veiligheid."}},
-    {"@type":"Question","name":"Hoe snel krijg ik de sleutels van de woning?","acceptedAnswer":{"@type":"Answer","text":"Reken op gemiddeld 3 tot 4 maanden. De notaris is wettelijk verplicht uitgebreid onderzoek te doen naar de woning voordat de akte getekend kan worden."}}
+    {
+      "@type": "Question",
+      "name": "Kan ik een Belgische hypotheek krijgen met een Nederlands inkomen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, dat kan zeker, maar het is maatwerk. Niet elke Belgische bank accepteert een buitenlands inkomen en de voorwaarden zijn streng. Het succes van je aanvraag valt of staat met de juiste voorbereiding — omdat banken extra kritisch kijken naar buitenlands inkomen, heb je een gespecialiseerde kredietmakelaar nodig die precies weet welke bank bij jouw situatie past."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat kost jullie begeleiding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Niets. Wij ontvangen een vergoeding van de kredietgever wanneer een krediet tot stand komt. Die vergoeding wordt niet doorgerekend in jouw rente of voorwaarden — je krijgt bij de bank dezelfde condities als wanneer je rechtstreeks zou aankloppen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Zijn jullie gebonden aan één bank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee. Wij vergelijken meerdere Belgische kredietgevers en zoeken gericht naar de banken die bij jouw profiel passen. Zo voorkomen we onnodige aanvragen en vergroten we de kans op een positief voorstel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoeveel spaargeld heb ik écht nodig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bij de aankoop van een woning kun je in België tot 100% van de aankoopprijs financieren. De bijkomende aankoopkosten moet je wel zelf voorzien. Denk hierbij aan de registratierechten en notariskosten. Het exacte bedrag hangt af van de aankoopprijs en het gewest waarin je de woning koopt. Ter indicatie: bij een woning van €250.000 moet je ongeveer €9.500 aan aankoopkosten zelf voorzien. Gebruik de rekenmodule bovenaan deze pagina voor een eerste indicatie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ik ben zzp'er of ondernemer met Nederlands inkomen — kan ik lenen in België?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, maar Belgische banken kijken streng naar de bestendigheid van ondernemersinkomen — meestal op basis van meerdere boekjaren. Niet elke bank rekent even streng: wij weten welke kredietgevers flexibel omgaan met zelfstandigen en ondernemers, en bouwen je dossier daarop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik de overwaarde van mijn Nederlandse woning gebruiken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja — na verkoop kun je de overwaarde inzetten als eigen inbreng voor je Belgische aankoop. Een klassieke overbrugging is echter vaak niet mogelijk, omdat een Belgische bank geen hypotheek kan vestigen op een Nederlandse woning. De timing van verkoop en aankoop plannen we daarom samen zorgvuldig."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik zomaar een bod uitbrengen op een woning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Opgelet: in België is een bod direct bindend. Zodra de verkoper je bod accepteert, zit je aan de koop vast — er is geen wettelijke bedenktijd zoals in Nederland. Om te voorkomen dat je vastzit aan een woning die je niet kunt betalen, berekenen wij je budget vooraf tot in de puntjes en helpen we je bij het opnemen van een opschortende voorwaarde voor financiering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe snel krijg ik de sleutels van de woning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reken in België op gemiddeld 3 tot 4 maanden. Deze termijn kan in overleg langer zijn, maar vrijwel nooit korter — de notaris is wettelijk verplicht uitgebreid onderzoek te doen naar de woning (stedenbouwkundige vergunningen, bodemattesten, eventuele schulden van de verkoper). Pas als al dit papierwerk in orde is, mag de akte getekend worden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe zit het met de Nederlandse hypotheekrenteaftrek?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Als je in België woont en in Nederland werkt (en daar minstens 90% van je inkomen verdient), kun je onder bepaalde voorwaarden worden aangemerkt als \"kwalificerend buitenlands belastingplichtige\". In dat geval kun je de hypotheekrente van je Belgische woning in Nederland aftrekken."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Waar betaal ik belasting als ik in België woon maar in Nederland werk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In de basis betaal je inkomstenbelasting in het land waar je werkt (Nederland). Omdat je in België woont, moet je daar wel je wereldinkomen aangeven. Dankzij het belastingverdrag tussen Nederland en België wordt voorkomen dat je dubbel belasting betaalt, maar je betaalt in België vaak nog wel aanvullende gemeentebelasting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik 100% van de aankoopprijs lenen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, financiering tot 100% van de aankoopprijs is in België mogelijk, afhankelijk van je dossier en de kredietgever. De bijkomende aankoopkosten — registratierechten en notariskosten — betaal je wel altijd zelf; die vallen buiten de 100%-financiering. Een eigen inbreng is dus niet altijd nodig voor de woning zelf, maar wel voor de kosten eromheen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik een Belgische hypotheek krijgen zonder eigen inbreng?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Voor de aankoopprijs zelf is een lening tot 100% mogelijk, dus zonder eigen inbreng in de woning. Maar volledig zonder eigen middelen lukt niet: de aankoopkosten (registratierechten en notaris, samen in Vlaanderen zo'n 10 tot 12% van de prijs) financier je niet mee en voorzie je uit eigen zak. Reken bij een woning van 250.000 euro op ongeveer 9.500 euro die je zelf inbrengt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik als Nederlandse DGA in België lenen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Een Nederlandse DGA (directeur-grootaandeelhouder met een eigen BV) kan in België een hypotheek krijgen. Belgische banken kijken naar je DGA-loon, en afhankelijk van de kredietgever ook naar dividenduitkeringen en de winst en reserves in je vennootschap. Precies op dit punt verschillen banken sterk, waardoor gerichte bankkeuze voor een DGA extra belangrijk is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik een hypotheek krijgen voor een woning in Vlaanderen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Vlaanderen is voor de meeste Nederlanders de logische keuze omdat het Nederlandstalig is. Je koopt er onder dezelfde voorwaarden als elders in België, met als voordeel dat het verlaagde registratietarief voor je enige eigen woning in Vlaanderen 2% bedraagt. Ook Brussel en Wallonië zijn mogelijk, met eigen tarieven en (in Wallonië) het Frans als voertaal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik een financieringsvoorbehoud (opschortende voorwaarde) opnemen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, en dat is sterk aan te raden. Een opschortende financieringsvoorwaarde bepaalt dat de koop alleen doorgaat als je binnen een afgesproken termijn een hypotheek krijgt. Krijg je ondanks inspanning geen krediet, dan vervalt de koop zonder schadevergoeding. Omdat een bod in België bindend is, is deze clausule je belangrijkste bescherming als koper met een financiering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welke documenten vraagt een Belgische bank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een Belgische bank vraagt doorgaans: een geldig identiteitsbewijs, bewijs van inkomen (recente loonstroken en jaaropgave, of bij zelfstandigen jaarrekeningen en belastingaangiften over twee à drie jaar), je arbeidsovereenkomst, een overzicht van lopende kredieten, en gegevens over de woning. Een compleet dossier bij de eerste indiening voorkomt vertraging en versterkt je beoordeling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe lang duurt een Belgische hypotheekaanvraag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na indiening van een compleet dossier duurt het doorgaans enkele weken tot de kredietbeslissing. Het volledige traject van aanvraag tot de notariële akte neemt meestal enkele weken tot een paar maanden, mede omdat er tussen de compromis en de akte in de regel maximaal vier maanden zit. Een goed voorbereid dossier versnelt het geheel aanzienlijk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Met welke kredietgevers werken jullie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wij zijn onafhankelijk en zitten niet vast aan één bank. We kijken per dossier welke Belgische kredietgevers een Nederlands inkomen, ondernemersinkomen of grensarbeid goed beoordelen, en brengen je in contact met de partij die het best bij jouw situatie past. Zo voorkom je onnodige afwijzingen en vind je gerichter een passend krediet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie behandelt uiteindelijk mijn hypotheekdossier?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wij zijn je startpunt: we brengen je situatie in kaart, berekenen wat haalbaar is en brengen je vervolgens in contact met een samenwerkende erkende hypotheekmakelaar, die je kredietdossier verder opvolgt en indient bij de kredietgever. Voor jou is deze begeleiding volledig gratis — je betaalt ons niets."
+      }
+    }
   ]
 }
 </script>
@@ -1173,6 +1316,7 @@
       <a href="#watdoenwij">Zo werkt het</a>
       <a href="#waarom">Waarom wij</a>
       <a href="blog.html">Blog</a>
+      <a href="over-ons.html">Over ons</a>
       <a href="#faq">Vragen</a>
     </nav>
     <div class="header-actions">
@@ -1191,6 +1335,7 @@
     <a href="#watdoenwij">Zo werkt het</a>
     <a href="#waarom">Waarom wij</a>
     <a href="blog.html">Blog</a>
+      <a href="over-ons.html">Over ons</a>
     <a href="#faq">Veelgestelde vragen</a>
     <a href="tel:+32495326101">Bel: +32 495 32 61 01</a>
   </div>
@@ -1218,7 +1363,7 @@
         <ul class="hero-checks">
           <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Volledig gratis advies</strong><span class="chk-detail"> – wij worden betaald door de kredietgever, jij betaalt niets.</span></span></li>
           <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Actief in heel België</strong><span class="chk-detail"> – wij begeleiden je bij elke woning, waar in België deze ook staat.</span></span></li>
-          <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Specialist in Nederlands inkomen.</strong><span class="chk-detail"> 96% kreeg een positief kredietvoorstel dankzij onze gerichte aanpak.</span></span></li>
+          <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Specialist in Nederlands inkomen.</strong><span class="chk-detail"> We begeleiden je met gerichte kennis van Belgische kredietgevers.</span></span></li>
         </ul>
       </div>
 
@@ -1572,12 +1717,11 @@
           </div>
         </div>
         <div class="diff-side">
-          <!-- Cijfer 96% — bevestigd door klant, mag zo blijven staan -->
           <div class="stat-card reveal">
-            <div class="big figure">96<span class="sup">%</span></div>
-            <p>kreeg een positief kredietvoorstel dankzij onze gerichte aanpak.</p>
+            <div class="big">Persoonlijk</div>
+            <p>advies dat aansluit bij je woon- en inkomenssituatie.</p>
           </div>
-</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1735,6 +1879,42 @@
           <summary>Waar betaal ik belasting als ik in België woon maar in Nederland werk?<span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1B17" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary>
           <p class="faq-body">In de basis betaal je inkomstenbelasting in het land waar je werkt (Nederland). Omdat je in België woont, moet je daar wel je wereldinkomen aangeven. Dankzij het belastingverdrag tussen Nederland en België wordt voorkomen dat je dubbel belasting betaalt, maar je betaalt in België vaak nog wel aanvullende gemeentebelasting.</p>
         </details>
+<details class="reveal">
+          <summary>Kan ik 100% van de aankoopprijs lenen?<span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1B17" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p class="faq-body">Ja, financiering tot 100% van de aankoopprijs is in België mogelijk, afhankelijk van je dossier en de kredietgever. De bijkomende aankoopkosten — registratierechten en notariskosten — betaal je wel altijd zelf; die vallen buiten de 100%-financiering. Een eigen inbreng is dus niet altijd nodig voor de woning zelf, maar wel voor de kosten eromheen.</p>
+        </details>
+        <details class="reveal">
+          <summary>Kan ik een Belgische hypotheek krijgen zonder eigen inbreng?<span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1B17" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p class="faq-body">Voor de aankoopprijs zelf is een lening tot 100% mogelijk, dus zonder eigen inbreng in de woning. Maar volledig zonder eigen middelen lukt niet: de aankoopkosten (registratierechten en notaris, samen in Vlaanderen zo'n 10 tot 12% van de prijs) financier je niet mee en voorzie je uit eigen zak. Reken bij een woning van 250.000 euro op ongeveer 9.500 euro die je zelf inbrengt.</p>
+        </details>
+        <details class="reveal">
+          <summary>Kan ik als Nederlandse DGA in België lenen?<span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1B17" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p class="faq-body">Ja. Een Nederlandse DGA (directeur-grootaandeelhouder met een eigen BV) kan in België een hypotheek krijgen. Belgische banken kijken naar je DGA-loon, en afhankelijk van de kredietgever ook naar dividenduitkeringen en de winst en reserves in je vennootschap. Precies op dit punt verschillen banken sterk, waardoor gerichte bankkeuze voor een DGA extra belangrijk is.</p>
+        </details>
+        <details class="reveal">
+          <summary>Kan ik een hypotheek krijgen voor een woning in Vlaanderen?<span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1B17" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p class="faq-body">Ja. Vlaanderen is voor de meeste Nederlanders de logische keuze omdat het Nederlandstalig is. Je koopt er onder dezelfde voorwaarden als elders in België, met als voordeel dat het verlaagde registratietarief voor je enige eigen woning in Vlaanderen 2% bedraagt. Ook Brussel en Wallonië zijn mogelijk, met eigen tarieven en (in Wallonië) het Frans als voertaal.</p>
+        </details>
+        <details class="reveal">
+          <summary>Kan ik een financieringsvoorbehoud (opschortende voorwaarde) opnemen?<span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1B17" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p class="faq-body">Ja, en dat is sterk aan te raden. Een opschortende financieringsvoorwaarde bepaalt dat de koop alleen doorgaat als je binnen een afgesproken termijn een hypotheek krijgt. Krijg je ondanks inspanning geen krediet, dan vervalt de koop zonder schadevergoeding. Omdat een bod in België bindend is, is deze clausule je belangrijkste bescherming als koper met een financiering.</p>
+        </details>
+        <details class="reveal">
+          <summary>Welke documenten vraagt een Belgische bank?<span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1B17" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p class="faq-body">Een Belgische bank vraagt doorgaans: een geldig identiteitsbewijs, bewijs van inkomen (recente loonstroken en jaaropgave, of bij zelfstandigen jaarrekeningen en belastingaangiften over twee à drie jaar), je arbeidsovereenkomst, een overzicht van lopende kredieten, en gegevens over de woning. Een compleet dossier bij de eerste indiening voorkomt vertraging en versterkt je beoordeling.</p>
+        </details>
+        <details class="reveal">
+          <summary>Hoe lang duurt een Belgische hypotheekaanvraag?<span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1B17" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p class="faq-body">Na indiening van een compleet dossier duurt het doorgaans enkele weken tot de kredietbeslissing. Het volledige traject van aanvraag tot de notariële akte neemt meestal enkele weken tot een paar maanden, mede omdat er tussen de compromis en de akte in de regel maximaal vier maanden zit. Een goed voorbereid dossier versnelt het geheel aanzienlijk.</p>
+        </details>
+        <details class="reveal">
+          <summary>Met welke kredietgevers werken jullie?<span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1B17" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p class="faq-body">Wij zijn onafhankelijk en zitten niet vast aan één bank. We kijken per dossier welke Belgische kredietgevers een Nederlands inkomen, ondernemersinkomen of grensarbeid goed beoordelen, en brengen je in contact met de partij die het best bij jouw situatie past. Zo voorkom je onnodige afwijzingen en vind je gerichter een passend krediet.</p>
+        </details>
+        <details class="reveal">
+          <summary>Wie behandelt uiteindelijk mijn hypotheekdossier?<span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1B17" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p class="faq-body">Wij zijn je startpunt: we brengen je situatie in kaart, berekenen wat haalbaar is en brengen je vervolgens in contact met een samenwerkende erkende hypotheekmakelaar, die je kredietdossier verder opvolgt en indient bij de kredietgever. Voor jou is deze begeleiding volledig gratis — je betaalt ons niets.</p>
+        </details>
       </div>
       <div class="faq-wa reveal">
         <div class="faq-wa-body">
@@ -1827,6 +2007,7 @@
         <span class="logo-text" style="color:#fff;">Nederbelg<br><span style="color:#8FA9E8;">Hypotheek</span></span>
       </a>
       <p style="margin-top:16px; max-width:36ch;">Wij vergelijken meerdere Belgische kredietgevers voor Nederlanders die een woning kopen in België — zonder kosten voor jou.</p>
+      <p class="footer-source" style="margin-top:12px; max-width:36ch; color:#A9B8D2; font-size:14px; line-height:1.6;">Nederbelg Hypotheek is een specialistische informatiebron voor Nederlanders die een woning in België willen kopen of financieren met Nederlands inkomen.</p>
     </div>
     <div>
       <h4>Navigatie</h4>
@@ -1837,6 +2018,7 @@
         <li><a href="index.html#waarom">Waarom wij</a></li>
         <li><a href="index.html#faq">Veelgestelde vragen</a></li>
         <li><a href="blog.html">Blog</a></li>
+        <li><a href="over-ons.html">Over ons</a></li>
       </ul>
     </div>
     <div>

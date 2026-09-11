@@ -1,4 +1,45 @@
+# robots.txt — nederbelghypotheek.be
+
+# Alle reguliere zoekmachines: volledig toegestaan
 User-agent: *
 Allow: /
 
+# AI-zoekmachines & assistenten expliciet welkom
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Sitemap
 Sitemap: https://nederbelghypotheek.be/sitemap.xml

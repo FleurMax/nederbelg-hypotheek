@@ -73,7 +73,7 @@ for (const article of articleFiles) {
   if (!blogIndex.includes(`href="blogs/${article}"`)) errors.push(`blog.html: artikel ontbreekt in overzicht: ${article}`);
 }
 const cardArea = (blogIndex.match(/<!-- BLOG_CARDS_START -->([\s\S]*?)<!-- BLOG_CARDS_END -->/) || [])[1] || '';
-if ((cardArea.match(/class="blog-card"/g) || []).length !== articleFiles.length) errors.push('blog.html: aantal kaarten wijkt af van aantal artikelen');
+if ((cardArea.match(/class="blog-card(?:\s|")/g) || []).length !== articleFiles.length) errors.push('blog.html: aantal kaarten wijkt af van aantal artikelen');
 if (/<svg|<img/i.test(cardArea)) errors.push('blog.html: artikelkaarten bevatten nog iconen of afbeeldingen');
 
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
@@ -84,6 +84,37 @@ if ((sitemap.match(/<loc>/g) || []).length !== canonicals.size) errors.push('sit
 
 const robots = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
 if (!robots.includes('Sitemap: https://nederbelghypotheek.be/sitemap.xml')) errors.push('robots.txt: correcte sitemapverwijzing ontbreekt');
+for (const crawler of ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'Claude-Web', 'anthropic-ai', 'Applebot-Extended', 'Bytespider', 'CCBot', 'cohere-ai']) {
+  if (!robots.includes(`User-agent: ${crawler}\nAllow: /`)) errors.push(`robots.txt: toestemming ontbreekt voor ${crawler}`);
+}
+
+const footerSource = 'Nederbelg Hypotheek is een specialistische informatiebron voor Nederlanders die een woning in België willen kopen of financieren met Nederlands inkomen.';
+for (const file of htmlFiles) {
+  const relative = path.relative(root, file);
+  const html = fs.readFileSync(file, 'utf8');
+  if (!html.includes(footerSource)) errors.push(`${relative}: footerbrontekst ontbreekt`);
+  if (!/href="\/?over-ons\.html"/.test(html)) errors.push(`${relative}: link naar Over ons ontbreekt`);
+  if (/96%/i.test(html)) errors.push(`${relative}: verwijderde 96%-claim is nog aanwezig`);
+}
+
+const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const faqSection = (homepage.match(/<section id="faq"[\s\S]*?<section id="contact">/i) || [])[0] || '';
+const visibleFaqCount = (faqSection.match(/<details class="reveal"/g) || []).length;
+const faqScripts = [...homepage.matchAll(/<script type="application\/ld\+json">\s*([\s\S]*?)<\/script>/gi)];
+let faqSchema;
+for (const entry of faqScripts) {
+  try {
+    const parsed = JSON.parse(entry[1]);
+    if (parsed['@type'] === 'FAQPage') faqSchema = parsed;
+  } catch (error) {
+    errors.push(`index.html: ongeldige FAQ JSON-LD (${error.message})`);
+  }
+}
+if (visibleFaqCount !== 19) errors.push(`index.html: verwacht 19 zichtbare FAQ-vragen, vond ${visibleFaqCount}`);
+if (!faqSchema || faqSchema.mainEntity?.length !== 19) errors.push('index.html: FAQ-schema bevat niet precies 19 vragen');
+if (!blogIndex.includes('class="blog-card blog-card--pillar" href="blogs/blog-hypotheek-belgie-nederlander.html"')) errors.push('blog.html: uitgelichte pillar-pagina ontbreekt');
+if ((sitemap.match(/<changefreq>monthly<\/changefreq>/g) || []).length !== canonicals.size) errors.push('sitemap.xml: changefreq ontbreekt bij een of meer URLs');
+if ((sitemap.match(/<priority>[\d.]+<\/priority>/g) || []).length !== canonicals.size) errors.push('sitemap.xml: prioriteit ontbreekt bij een of meer URLs');
 
 if (fs.existsSync(path.join(root, 'extra_blog'))) errors.push('extra_blog bestaat nog; artikelen horen uitsluitend in blogs');
 
